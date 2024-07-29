@@ -26,6 +26,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraping script
+        env:
+          WEBPAGE_URL: 'https://christoph-lsn.github.io/MT_Site/'  # Hier gibst du die URL deiner Webseite an
         run: |
           python scrape_webpage.py
 
