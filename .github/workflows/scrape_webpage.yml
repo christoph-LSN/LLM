@@ -39,4 +39,4 @@ jobs:
           git commit -m 'Update scraped webpage content'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.LMMTOKEN }}
+          GITHUB_TOKEN: ${{ secrets.LMM_TOKEN }}
