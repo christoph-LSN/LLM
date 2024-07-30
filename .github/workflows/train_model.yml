@@ -14,6 +14,7 @@ jobs:
       - name: Checkout repository content
         uses: actions/checkout@v2
         with:
+          lfs: true  # Git LFS aktivieren
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
