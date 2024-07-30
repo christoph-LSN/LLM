@@ -38,4 +38,4 @@ jobs:
           git commit -m 'Add trained model'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.LMMToken }}
+          GITHUB_TOKEN: ${{ secrets.LMM_Token }}
