@@ -1,7 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse, urljoin, urlparse
+from urllib.parse import urljoin, urlparse
 import csv
 
 # Setze die URL der Website, die gescrapet werden soll
