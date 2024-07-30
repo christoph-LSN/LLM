@@ -45,6 +45,10 @@ datasets = DatasetDict({"train": dataset})
 # Tokenizer und Modell laden
 model_name = 'gpt2'  # oder ein anderes Modell wie 'gpt3' oder 'gpt4', wenn du Zugang hast
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Setze das Padding-Token
+tokenizer.pad_token = tokenizer.eos_token
+
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
 # Tokenisierung der Daten
