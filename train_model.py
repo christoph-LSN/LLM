@@ -57,6 +57,13 @@ def tokenize_function(examples):
 
 tokenized_datasets = datasets.map(tokenize_function, batched=True, num_proc=4, remove_columns=['text'])
 
+# Labels für die Berechnung des Loss setzen
+def add_labels(examples):
+    examples['labels'] = examples['input_ids'].copy()
+    return examples
+
+tokenized_datasets = tokenized_datasets.map(add_labels, batched=True, num_proc=4)
+
 # Trainingsparameter definieren
 training_args = TrainingArguments(
     output_dir='./results',
