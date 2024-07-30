@@ -14,6 +14,9 @@ model_name = "distilgpt2"  # Oder ein anderes Modell Ihrer Wahl
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
+# Padding-Token setzen
+tokenizer.pad_token = tokenizer.eos_token
+
 # Tokenisieren der Trainingsdaten
 tokenized_texts = tokenizer(texts, return_tensors='pt', padding=True, truncation=True, max_length=512)
 
