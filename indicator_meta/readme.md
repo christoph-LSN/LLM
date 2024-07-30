@@ -1,0 +1,1 @@
+# Metadaten für jeden Indikator
