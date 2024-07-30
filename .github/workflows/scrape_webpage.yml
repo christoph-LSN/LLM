@@ -1,10 +1,10 @@
 name: Scrape Webpage
 
 on:
-  workflow_dispatch:  # Ermöglicht manuelles Triggern des Workflows
   push:
-    paths:
-      - 'scrape_webpage.py'  # Nur ausführen, wenn das Scraping-Skript geändert wird
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -28,13 +28,12 @@ jobs:
         run: |
           python scrape_webpage.py
 
-      - name: Commit and push scraped content
+      - name: Commit scraped content
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add webpage_content.txt
+          git add training_data.json
           git commit -m 'Update scraped webpage content'
-          git pull --rebase origin main  # Änderungen vom Remote-Repository ziehen und integrieren
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.LMM_TOKEN }}
