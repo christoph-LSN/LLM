@@ -36,7 +36,9 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add webpage_content.txt
-          git commit -m 'Update scraped webpage content'
+          git add indicator_CSV/*
+          git add indicator_meta/*
+          git commit -m 'Update scraped webpage content and CSV files'
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.LMM_TOKEN }}
