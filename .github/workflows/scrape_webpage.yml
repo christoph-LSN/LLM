@@ -1,11 +1,10 @@
 name: Scrape Webpage
 
 on:
+  workflow_dispatch:  # Ermöglicht manuelles Triggern des Workflows
   push:
-    branches:
-      - main
-  schedule:
-    - cron: '0 0 * * *'  # Führe den Workflow täglich um Mitternacht UTC aus
+    paths:
+      - 'scrape_webpage.py'  # Nur ausführen, wenn das Scraping-Skript geändert wird
 
 jobs:
   scrape:
@@ -26,19 +25,16 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraping script
-        env:
-          WEBPAGE_URL: 'https://christoph-lsn.github.io/MT_Site/'  # Hier gibst du die URL deiner Webseite an
         run: |
           python scrape_webpage.py
 
-      - name: Commit scraped content
+      - name: Commit and push scraped content
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add webpage_content.txt
-          git add indicator_CSV/*
-          git add indicator_meta/*
-          git commit -m 'Update scraped webpage content and CSV files'
+          git commit -m 'Update scraped webpage content'
+          git pull --rebase origin main  # Änderungen vom Remote-Repository ziehen und integrieren
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.LMM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
