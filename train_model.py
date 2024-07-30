@@ -1,89 +1,58 @@
-import os
-import pandas as pd
-from transformers import Trainer, TrainingArguments, AutoTokenizer, AutoModelForCausalLM
-from datasets import Dataset, DatasetDict
+import json
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModeling
 
-# Funktion zum Laden von Daten aus einer Datei
-def load_data(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        text = f.read()
-    return text
+# Schritt 1: Trainingsdaten laden
+with open('training_data.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
 
-# Laden des Webseiteninhalts
-webpage_content = load_data('webpage_content.txt')
+# Extrahieren der Inhalte für das Training
+texts = [item['content'] for item in data]
 
-# Funktion zum Laden und Verarbeiten von CSV-Dateien
-def load_csv_data(folder_path):
-    data = []
-    for filename in os.listdir(folder_path):
-        if filename.endswith('.csv'):
-            df = pd.read_csv(os.path.join(folder_path, filename))
-            data.append(df.to_string(index=False))
-    return data
-
-# Funktion zum Laden und Verarbeiten von Metadaten-Dateien
-def load_meta_data(folder_path):
-    data = []
-    for filename in os.listdir(folder_path):
-        if filename.endswith('.md'):
-            data.append(load_data(os.path.join(folder_path, filename)))
-    return data
-
-# Laden der CSV-Daten
-csv_data = load_csv_data('indicator_CSV')
-
-# Laden der Metadaten
-meta_data = load_meta_data('indicator_meta')
-
-# Zusammenführen aller Daten
-all_data = [webpage_content] + csv_data + meta_data
-
-# Erstellen eines Datasets
-dataset = Dataset.from_dict({"text": all_data})
-datasets = DatasetDict({"train": dataset})
-
-# Tokenizer und Modell laden
-model_name = 'gpt2'  # oder ein anderes Modell wie 'gpt3' oder 'gpt4', wenn du Zugang hast
+# Schritt 2: Tokenizer und Modell initialisieren
+model_name = "distilgpt2"  # Oder ein anderes Modell Ihrer Wahl
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-# Setze das Padding-Token
-tokenizer.pad_token = tokenizer.eos_token
-
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
-# Tokenisierung der Daten
-def tokenize_function(examples):
-    return tokenizer(examples['text'], return_special_tokens_mask=True, padding="max_length", truncation=True, max_length=512)
+# Tokenisieren der Trainingsdaten
+tokenized_texts = tokenizer(texts, return_tensors='pt', padding=True, truncation=True, max_length=512)
 
-tokenized_datasets = datasets.map(tokenize_function, batched=True, num_proc=4, remove_columns=['text'])
+# Schritt 3: Dataset erstellen
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, encodings):
+        self.encodings = encodings
 
-# Labels für die Berechnung des Loss setzen
-def add_labels(examples):
-    examples['labels'] = examples['input_ids'].copy()
-    return examples
+    def __getitem__(self, idx):
+        return {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
 
-tokenized_datasets = tokenized_datasets.map(add_labels, batched=True, num_proc=4)
+    def __len__(self):
+        return len(self.encodings.input_ids)
 
-# Trainingsparameter definieren
+dataset = CustomDataset(tokenized_texts)
+
+# Schritt 4: Trainingsparameter festlegen
 training_args = TrainingArguments(
-    output_dir='./results',
+    output_dir='./trained_model',
     overwrite_output_dir=True,
     num_train_epochs=3,
-    per_device_train_batch_size=2,  # Reduziere die Batch-Größe, um Speicherprobleme zu vermeiden
+    per_device_train_batch_size=2,
     save_steps=10_000,
     save_total_limit=2,
+    prediction_loss_only=True,
 )
 
 # Trainer initialisieren
+data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_datasets['train'],
+    data_collator=data_collator,
+    train_dataset=dataset,
 )
 
 # Modell trainieren
 trainer.train()
 
-# Modell speichern
-model.save_pretrained('./trained_model')
+# Speichern des trainierten Modells
+trainer.save_model('./trained_model')
 tokenizer.save_pretrained('./trained_model')
