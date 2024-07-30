@@ -1,0 +1,505 @@
+Year,Altersgruppe,Schulabschluss,Migrationsstatus,Units,Value
+2022,18 – 25,Ohne Abschluss,Insgesamt,%,6.25873930309301
+2022,25 – 35,Ohne Abschluss,Insgesamt,%,6.09340979484192
+2022,15 – 65,Ohne Abschluss,Insgesamt,%,5.7815209926852
+2022,18 – 25,Hauptschulabschluss,Insgesamt,%,10.5729254059698
+2022,25 – 35,Hauptschulabschluss,Insgesamt,%,10.3795475686671
+2022,15 – 65,Hauptschulabschluss,Insgesamt,%,17.4235471956478
+2022,18 – 25,Realschulabschluss,Insgesamt,%,34.6645039804612
+2022,25 – 35,Realschulabschluss,Insgesamt,%,32.5871180757869
+2022,15 – 65,Realschulabschluss,Insgesamt,%,35.7930489764017
+2022,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,48.5019669258161
+2022,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,50.9389023480225
+2022,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,41.0018828352653
+2021,18 – 25,Ohne Abschluss,Insgesamt,%,6.53963729112357
+2021,25 – 35,Ohne Abschluss,Insgesamt,%,6.51879707015713
+2021,15 – 65,Ohne Abschluss,Insgesamt,%,5.81396795382166
+2021,18 – 25,Hauptschulabschluss,Insgesamt,%,11.2994880066015
+2021,25 – 35,Hauptschulabschluss,Insgesamt,%,10.7947560358276
+2021,15 – 65,Hauptschulabschluss,Insgesamt,%,18.7406697850318
+2021,18 – 25,Realschulabschluss,Insgesamt,%,34.7855441570863
+2021,25 – 35,Realschulabschluss,Insgesamt,%,32.6890296186865
+2021,15 – 65,Realschulabschluss,Insgesamt,%,35.8622362659236
+2021,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,47.3753305451886
+2021,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,49.9974172753288
+2021,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,39.5831259952229
+2019,18 – 25,Ohne Abschluss,Insgesamt,%,4.67535046814551
+2019,25 – 35,Ohne Abschluss,Insgesamt,%,4.74913006634145
+2019,15 – 65,Ohne Abschluss,Insgesamt,%,4.1453676331601
+2019,18 – 25,Hauptschulabschluss,Insgesamt,%,12.2398443213927
+2019,25 – 35,Hauptschulabschluss,Insgesamt,%,13.7767730991181
+2019,15 – 65,Hauptschulabschluss,Insgesamt,%,22.4409548673615
+2019,18 – 25,Realschulabschluss,Insgesamt,%,35.2865221283734
+2019,25 – 35,Realschulabschluss,Insgesamt,%,35.471306016721
+2019,15 – 65,Realschulabschluss,Insgesamt,%,36.8567886630311
+2019,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,47.7982830820884
+2019,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,46.0027908178194
+2019,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,36.5568890425676
+2018,18 – 25,Ohne Abschluss,Insgesamt,%,4.69829888868067
+2018,25 – 35,Ohne Abschluss,Insgesamt,%,4.64854158681157
+2018,15 – 65,Ohne Abschluss,Insgesamt,%,4.20696238944428
+2018,18 – 25,Hauptschulabschluss,Insgesamt,%,12.9014671856899
+2018,25 – 35,Hauptschulabschluss,Insgesamt,%,14.8041431602725
+2018,15 – 65,Hauptschulabschluss,Insgesamt,%,23.5805729388685
+2018,18 – 25,Realschulabschluss,Insgesamt,%,35.5556401356863
+2018,25 – 35,Realschulabschluss,Insgesamt,%,36.0772996848019
+2018,15 – 65,Realschulabschluss,Insgesamt,%,36.9643593506712
+2018,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,46.8445937899431
+2018,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,44.470015568114
+2018,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,35.2481051140062
+2017,18 – 25,Ohne Abschluss,Insgesamt,%,4.91947935759943
+2017,25 – 35,Ohne Abschluss,Insgesamt,%,4.6497542305345
+2017,15 – 65,Ohne Abschluss,Insgesamt,%,4.22015122201331
+2017,18 – 25,Hauptschulabschluss,Insgesamt,%,13.0419244579118
+2017,25 – 35,Hauptschulabschluss,Insgesamt,%,15.1611761077529
+2017,15 – 65,Hauptschulabschluss,Insgesamt,%,24.8574375151289
+2017,18 – 25,Realschulabschluss,Insgesamt,%,37.0257888242633
+2017,25 – 35,Realschulabschluss,Insgesamt,%,36.9894147782708
+2017,15 – 65,Realschulabschluss,Insgesamt,%,36.6420554912212
+2017,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,45.0128073602255
+2017,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,43.1996538265916
+2017,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,34.2803557716366
+2016,18 – 25,Ohne Abschluss,Insgesamt,%,4.9161793714797
+2016,25 – 35,Ohne Abschluss,Insgesamt,%,4.76691764945931
+2016,15 – 65,Ohne Abschluss,Insgesamt,%,4.13794834789097
+2016,18 – 25,Hauptschulabschluss,Insgesamt,%,13.8626051677443
+2016,25 – 35,Hauptschulabschluss,Insgesamt,%,15.5207493099864
+2016,15 – 65,Hauptschulabschluss,Insgesamt,%,26.0464191112209
+2016,18 – 25,Realschulabschluss,Insgesamt,%,37.6605710014727
+2016,25 – 35,Realschulabschluss,Insgesamt,%,36.7934738621367
+2016,15 – 65,Realschulabschluss,Insgesamt,%,36.5198660802176
+2016,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,43.560642662873
+2016,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,42.9188591784176
+2016,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,33.295766256137
+2015,18 – 25,Ohne Abschluss,Insgesamt,%,3.98651094662857
+2015,25 – 35,Ohne Abschluss,Insgesamt,%,4.17317776687259
+2015,15 – 65,Ohne Abschluss,Insgesamt,%,3.74991365539768
+2015,18 – 25,Hauptschulabschluss,Insgesamt,%,13.7518266146371
+2015,25 – 35,Hauptschulabschluss,Insgesamt,%,14.7134071637803
+2015,15 – 65,Hauptschulabschluss,Insgesamt,%,25.9690595739161
+2015,18 – 25,Realschulabschluss,Insgesamt,%,39.6373599803497
+2015,25 – 35,Realschulabschluss,Insgesamt,%,37.6478115929655
+2015,15 – 65,Realschulabschluss,Insgesamt,%,37.134010687532
+2015,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,42.6243024583847
+2015,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,43.4656034763816
+2015,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,33.1470160831542
+2014,18 – 25,Ohne Abschluss,Insgesamt,%,4.70723891751852
+2014,25 – 35,Ohne Abschluss,Insgesamt,%,3.53056145389947
+2014,15 – 65,Ohne Abschluss,Insgesamt,%,3.62776663011742
+2014,18 – 25,Hauptschulabschluss,Insgesamt,%,14.1620732569102
+2014,25 – 35,Hauptschulabschluss,Insgesamt,%,15.8110340284484
+2014,15 – 65,Hauptschulabschluss,Insgesamt,%,27.4121399274081
+2014,18 – 25,Realschulabschluss,Insgesamt,%,40.4719987350484
+2014,25 – 35,Realschulabschluss,Insgesamt,%,39.2464806662233
+2014,15 – 65,Realschulabschluss,Insgesamt,%,36.9052477074631
+2014,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,40.6586872450636
+2014,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,41.4119238514289
+2014,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,32.0548457350113
+2013,18 – 25,Ohne Abschluss,Insgesamt,%,4.55160717543214
+2013,25 – 35,Ohne Abschluss,Insgesamt,%,3.71334883829649
+2013,15 – 65,Ohne Abschluss,Insgesamt,%,3.64584459153347
+2013,18 – 25,Hauptschulabschluss,Insgesamt,%,15.1526772514557
+2013,25 – 35,Hauptschulabschluss,Insgesamt,%,16.2996285313348
+2013,15 – 65,Hauptschulabschluss,Insgesamt,%,28.4732847377322
+2013,18 – 25,Realschulabschluss,Insgesamt,%,40.4170056430478
+2013,25 – 35,Realschulabschluss,Insgesamt,%,39.4475685389831
+2013,15 – 65,Realschulabschluss,Insgesamt,%,36.1698129334363
+2013,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,39.8787099300643
+2013,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,40.5394529450154
+2013,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,31.711057737298
+2012,18 – 25,Ohne Abschluss,Insgesamt,%,5.20650349805188
+2012,25 – 35,Ohne Abschluss,Insgesamt,%,3.58776236083453
+2012,15 – 65,Ohne Abschluss,Insgesamt,%,3.59786280539906
+2012,18 – 25,Hauptschulabschluss,Insgesamt,%,16.1902444928661
+2012,25 – 35,Hauptschulabschluss,Insgesamt,%,17.1201415112542
+2012,15 – 65,Hauptschulabschluss,Insgesamt,%,29.8072580207776
+2012,18 – 25,Realschulabschluss,Insgesamt,%,42.0805614447945
+2012,25 – 35,Realschulabschluss,Insgesamt,%,40.1914221831389
+2012,15 – 65,Realschulabschluss,Insgesamt,%,36.0962061000574
+2012,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,36.5226905642876
+2012,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,39.1006739447724
+2012,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,30.4986728631171
+2011,18 – 25,Ohne Abschluss,Insgesamt,%,4.68019980345889
+2011,25 – 35,Ohne Abschluss,Insgesamt,%,3.45330609363281
+2011,15 – 65,Ohne Abschluss,Insgesamt,%,3.66888208990647
+2011,18 – 25,Hauptschulabschluss,Insgesamt,%,17.513989203262
+2011,25 – 35,Hauptschulabschluss,Insgesamt,%,18.3917415373394
+2011,15 – 65,Hauptschulabschluss,Insgesamt,%,31.1495096200074
+2011,18 – 25,Realschulabschluss,Insgesamt,%,42.4938705495868
+2011,25 – 35,Realschulabschluss,Insgesamt,%,40.1254481283449
+2011,15 – 65,Realschulabschluss,Insgesamt,%,35.5487305868579
+2011,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,35.3119422625742
+2011,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,38.0295030522972
+2011,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,29.6328777032282
+2010,18 – 25,Ohne Abschluss,Insgesamt,%,4.98741179499201
+2010,25 – 35,Ohne Abschluss,Insgesamt,%,3.8616844005459
+2010,15 – 65,Ohne Abschluss,Insgesamt,%,4.14330351916854
+2010,18 – 25,Hauptschulabschluss,Insgesamt,%,17.7912781958781
+2010,25 – 35,Hauptschulabschluss,Insgesamt,%,19.2625350144147
+2010,15 – 65,Hauptschulabschluss,Insgesamt,%,32.035128689762
+2010,18 – 25,Realschulabschluss,Insgesamt,%,45.1297543203308
+2010,25 – 35,Realschulabschluss,Insgesamt,%,39.0096397194317
+2010,15 – 65,Realschulabschluss,Insgesamt,%,35.4650208724387
+2010,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,32.0915556887991
+2010,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,37.8661408656078
+2010,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,28.3565469186308
+2006,18 – 25,Ohne Abschluss,Insgesamt,%,4.25154836863836
+2006,25 – 35,Ohne Abschluss,Insgesamt,%,4.2461545108542
+2006,15 – 65,Ohne Abschluss,Insgesamt,%,3.65854435505334
+2006,18 – 25,Hauptschulabschluss,Insgesamt,%,21.2424561149263
+2006,25 – 35,Hauptschulabschluss,Insgesamt,%,22.4972586007751
+2006,15 – 65,Hauptschulabschluss,Insgesamt,%,36.7255587389201
+2006,18 – 25,Realschulabschluss,Insgesamt,%,45.1611136302008
+2006,25 – 35,Realschulabschluss,Insgesamt,%,39.5962560218796
+2006,15 – 65,Realschulabschluss,Insgesamt,%,34.009697900806
+2006,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,29.3448818862346
+2006,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,33.6603308664912
+2006,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,25.6061990052206
+2005,18 – 25,Ohne Abschluss,Insgesamt,%,4.79887915233571
+2005,25 – 35,Ohne Abschluss,Insgesamt,%,4.37554881853402
+2005,15 – 65,Ohne Abschluss,Insgesamt,%,3.62296981481807
+2005,18 – 25,Hauptschulabschluss,Insgesamt,%,22.1207096036731
+2005,25 – 35,Hauptschulabschluss,Insgesamt,%,22.8887998200984
+2005,15 – 65,Hauptschulabschluss,Insgesamt,%,37.5243414620501
+2005,18 – 25,Realschulabschluss,Insgesamt,%,42.8991241750646
+2005,25 – 35,Realschulabschluss,Insgesamt,%,38.480961097515
+2005,15 – 65,Realschulabschluss,Insgesamt,%,33.3689349181162
+2005,18 – 25,(Fach-)Hochschulreife,Insgesamt,%,30.1812870689266
+2005,25 – 35,(Fach-)Hochschulreife,Insgesamt,%,34.2546902638525
+2005,15 – 65,(Fach-)Hochschulreife,Insgesamt,%,25.4837538050156
+2022,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,14.6661688756145
+2022,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,14.1471649399225
+2022,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,15.8564068260908
+2022,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,15.5373032169747
+2022,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,12.7337724669822
+2022,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,17.0938945826067
+2022,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,30.7385974737104
+2022,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,24.8287047764059
+2022,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,29.2020035516058
+2022,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,39.0579304337005
+2022,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,48.2903578166893
+2022,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,37.8476950396968
+2021,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,14.3448795180723
+2021,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,15.0586390290468
+2021,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,15.8361678708279
+2021,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,14.9096385542169
+2021,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,13.981317332606
+2021,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,18.160902417426
+2021,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,32.3857931726908
+2021,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,24.9045411155053
+2021,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,30.0750635184679
+2021,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,38.3596887550201
+2021,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,46.0555025228419
+2021,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,35.9278661932782
+2019,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,11.0652512767909
+2019,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,11.7324291571626
+2019,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,11.5644060556639
+2019,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,17.6404497210659
+2019,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,17.9301003496463
+2019,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,24.2774994740429
+2019,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,33.653187930571
+2019,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,27.8639661884164
+2019,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,30.4261871958957
+2019,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,37.6411110715722
+2019,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,42.4735043047747
+2019,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,33.7319072743975
+2018,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,11.5884006844223
+2018,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,10.9318880337526
+2018,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,11.9270857262579
+2018,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,15.9930249356073
+2018,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,18.645115069236
+2018,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,24.2953979828167
+2018,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,33.7218691007498
+2018,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,28.3941486950372
+2018,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,31.0014621518687
+2018,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,38.6967121655885
+2018,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,42.0288446214512
+2018,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,32.7760541390566
+2017,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,12.0425801124429
+2017,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,10.3053100087195
+2017,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,11.7674407273477
+2017,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,17.5877096266988
+2017,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,20.733476648051
+2017,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,25.7078632163865
+2017,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,33.2928216161464
+2017,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,31.4487760666677
+2017,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,31.3711779844277
+2017,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,37.0768886447119
+2017,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,37.5124372765619
+2017,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,31.1535171708756
+2016,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,11.5033499333378
+2016,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,11.7623228926361
+2016,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,11.9623671251532
+2016,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,19.2654244170864
+2016,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,20.5496560599743
+2016,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,27.2272080176712
+2016,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,33.0060163459954
+2016,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,30.9996650097147
+2016,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,31.0765892782814
+2016,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,36.2252017257457
+2016,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,36.6883520377909
+2016,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,29.7338366013978
+2015,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,8.21940372720406
+2015,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,9.33620657684447
+2015,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,11.0683214977199
+2015,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,20.3293395798504
+2015,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,20.302583164475
+2015,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,25.9346493904064
+2015,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,37.2258648889689
+2015,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,33.7342178694955
+2015,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,32.9933256758336
+2015,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,34.2253918039766
+2015,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,36.626992389185
+2015,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,30.0037022912731
+2014,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,9.55935417011347
+2014,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,7.3042348379108
+2014,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,9.84627513025619
+2014,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,18.5487254578913
+2014,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,21.5008135298934
+2014,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,27.3345123043587
+2014,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,38.5913226147774
+2014,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,35.1040290051066
+2014,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,33.1248128035722
+2014,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,33.3006162119257
+2014,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,36.0909226270893
+2014,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,29.6943997618129
+2013,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,7.15290427260099
+2013,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,7.27578194958006
+2013,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,10.1797277531646
+2013,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,19.9157610229215
+2013,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,22.4094581773105
+2013,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,27.6909404486725
+2013,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,40.4242065407127
+2013,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,35.3256957733529
+2013,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,32.9104189163079
+2013,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,32.5071370792631
+2013,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,34.9890690375149
+2013,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,29.218912881855
+2012,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,8.10022196047738
+2012,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,8.42876841069858
+2012,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,10.2161306287911
+2012,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,21.4952436975449
+2012,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,24.3125915056762
+2012,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,29.1989397177257
+2012,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,40.3778551465633
+2012,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,35.6033013868284
+2012,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,32.30026747289
+2012,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,30.0266883112088
+2012,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,31.6553386967969
+2012,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,28.2846634176279
+2011,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,6.43071541895578
+2011,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,8.14563888054527
+2011,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,10.6882888353684
+2011,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,23.900930736812
+2011,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,25.4346816099645
+2011,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,30.4421446808382
+2011,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,40.8403131118161
+2011,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,34.9438646288094
+2011,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,32.085785165619
+2011,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,28.8280407324161
+2011,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,31.4758148806809
+2011,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,26.7837813181744
+2010,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,8.42674225068588
+2010,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,9.82103431308965
+2010,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,12.1621650161919
+2010,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,22.1134897371692
+2010,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,25.1841958827906
+2010,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,30.3421715868025
+2010,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,44.0269553968381
+2010,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,33.6546387708485
+2010,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,32.2370629370629
+2010,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,25.4328126153069
+2010,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,31.3401310332713
+2010,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,25.2586004599427
+2006,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,8.04691377731026
+2006,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,11.6008072462795
+2006,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,12.2423872159555
+2006,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,30.853960175348
+2006,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,29.1386247163094
+2006,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,35.109006773471
+2006,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,38.8845655712063
+2006,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,31.1446869618161
+2006,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,28.4402379173244
+2006,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,22.2145604761355
+2006,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,28.115881075595
+2006,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,24.2083680932491
+2005,18 – 25,Ohne Abschluss,mit Migrationshintergrund,%,9.83952716316597
+2005,25 – 35,Ohne Abschluss,mit Migrationshintergrund,%,12.616248257356
+2005,15 – 65,Ohne Abschluss,mit Migrationshintergrund,%,12.7671882874692
+2005,18 – 25,Hauptschulabschluss,mit Migrationshintergrund,%,29.4496250432791
+2005,25 – 35,Hauptschulabschluss,mit Migrationshintergrund,%,29.8469574221169
+2005,15 – 65,Hauptschulabschluss,mit Migrationshintergrund,%,35.4639042795683
+2005,18 – 25,Realschulabschluss,mit Migrationshintergrund,%,37.7107056252857
+2005,25 – 35,Realschulabschluss,mit Migrationshintergrund,%,31.468724501456
+2005,15 – 65,Realschulabschluss,mit Migrationshintergrund,%,28.7114194862192
+2005,18 – 25,(Fach-)Hochschulreife,mit Migrationshintergrund,%,23.0001421682692
+2005,25 – 35,(Fach-)Hochschulreife,mit Migrationshintergrund,%,26.0680698190712
+2005,15 – 65,(Fach-)Hochschulreife,mit Migrationshintergrund,%,23.0574879467433
+2022,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.66464356066656
+2022,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.49500850403017
+2022,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.26059610942588
+2022,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,8.44912953202364
+2022,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,9.327811876063
+2022,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,17.5387526785963
+2022,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,36.3440344992813
+2022,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,36.0541300007395
+2022,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,38.0964572955222
+2022,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,52.5448543896076
+2022,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,52.1230496191673
+2022,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,42.1041939164556
+2021,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,3.20992938155361
+2021,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.80738160527681
+2021,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.46408445444058
+2021,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,9.76086026107426
+2021,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,9.40932335284963
+2021,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,18.9341942551726
+2021,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,35.8094371923818
+2021,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,36.073519602757
+2021,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,37.7967372390192
+2021,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,51.2197731649904
+2021,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,51.7097754391166
+2021,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,40.8049840513676
+2019,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.36154851270046
+2019,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,1.83853985446954
+2019,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,1.93463833380332
+2019,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,10.2842714419443
+2019,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,12.0456953542199
+2019,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,21.8937002582936
+2019,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,35.8779575345181
+2019,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,38.6419935555119
+2019,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,38.772982954836
+2019,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,51.4762225108371
+2019,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,47.4737712357987
+2019,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,37.398678453067
+2018,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.22914674369602
+2018,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,1.99286660942186
+2018,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,1.91305848966343
+2018,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,11.7935694345249
+2018,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,13.1807434985902
+2018,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,23.3681748457702
+2018,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,36.2127959461121
+2018,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,39.3246061962801
+2018,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,38.7361333723027
+2018,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,49.764487875667
+2018,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,45.5017821823892
+2018,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,35.9826332922637
+2017,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.33497665643216
+2017,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.19058201026269
+2017,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,1.99477967477266
+2017,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,11.3925590845768
+2017,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,12.7382037812541
+2017,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,24.6066834984341
+2017,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,38.3802350708004
+2017,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,39.3986212850021
+2017,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,38.1962109034812
+2017,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,47.8922291881907
+2017,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,45.6725944398756
+2017,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,35.202325923312
+2016,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.86937453968511
+2016,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.24801523777964
+2016,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.18145181137259
+2016,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,12.1838109541446
+2016,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,13.709942976141
+2016,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,25.7511629685003
+2016,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,39.1068602556339
+2016,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,38.8797051258562
+2016,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,37.8809583102876
+2016,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,45.8399542505364
+2016,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,45.1623381004997
+2016,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,34.1864271655167
+2015,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,2.88272323173724
+2015,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.64045672643164
+2015,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.12166938020212
+2015,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,12.0366454414079
+2015,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,13.0541779146588
+2015,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,25.9767153626498
+2015,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,40.2661896118546
+2015,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,38.8096188615495
+2015,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,38.0552554373444
+2015,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,44.81443929373
+2015,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,45.49574649736
+2015,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,33.8463598198036
+2014,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,3.49421961504331
+2014,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.41518450864186
+2014,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.28948318647338
+2014,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,13.0654190335031
+2014,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,14.1293175061867
+2014,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,27.4288462161987
+2014,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,40.9421673613119
+2014,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,40.4708566546779
+2014,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,37.718834126586
+2014,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,42.4981939901418
+2014,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,42.9846413304936
+2014,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,32.5628367261845
+2013,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,3.85811345968942
+2013,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.63620579760915
+2013,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.23266602156267
+2013,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,13.8828570659155
+2013,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,14.4522520449017
+2013,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,28.6424937909535
+2013,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,40.4150868709669
+2013,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,40.6938646589115
+2013,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,36.8747697963238
+2013,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,41.8439449802671
+2013,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,42.217676005589
+2013,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,32.2500706470325
+2012,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,4.4659382405957
+2012,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.15208114288503
+2012,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.23957248230154
+2012,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,14.8325802443114
+2012,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,14.9870980733261
+2012,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,29.9321055740499
+2012,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,42.5163208818286
+2012,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,41.552107480163
+2012,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,36.8752601550146
+2012,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,38.185158300335
+2012,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,41.3087148079254
+2012,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,30.9530617886341
+2011,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,4.21247337753593
+2011,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.09626079863827
+2011,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.25603488363145
+2011,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,15.8074398245418
+2011,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,16.3548917692901
+2011,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,31.2918861219488
+2011,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,42.9356903788874
+2011,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,41.6239860727287
+2011,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,36.2457428759724
+2011,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,37.0443964190348
+2011,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,39.924861359343
+2011,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,30.2063361184474
+2010,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,4.01300454707768
+2010,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.02953875623098
+2010,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.43403135264804
+2010,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,16.5667392028655
+2010,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,17.4419752329106
+2010,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,32.395993772894
+2010,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,45.4421916618094
+2010,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,40.6559846443521
+2010,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,36.1530808164678
+2010,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,33.9780645882474
+2010,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,39.8725013665064
+2010,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,29.0168940579902
+2006,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,3.20747049280786
+2006,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.05782613605823
+2006,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,2.02890286217007
+2006,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,18.5984000986038
+2006,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,20.5211648441393
+2006,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,37.0324609727205
+2006,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,46.887747105336
+2006,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,42.1109647659073
+2006,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,35.0670591119203
+2006,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,31.3063823032524
+2006,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,35.3100442538952
+2006,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,25.8715770531891
+2005,18 – 25,Ohne Abschluss,ohne Migrationshintergrund,%,3.28717630226263
+2005,25 – 35,Ohne Abschluss,ohne Migrationshintergrund,%,2.0206492308206
+2005,15 – 65,Ohne Abschluss,ohne Migrationshintergrund,%,1.8955267408438
+2005,18 – 25,Hauptschulabschluss,ohne Migrationshintergrund,%,19.9227489398554
+2005,25 – 35,Hauptschulabschluss,ohne Migrationshintergrund,%,20.9004043287381
+2005,15 – 65,Hauptschulabschluss,ohne Migrationshintergrund,%,37.9135806797758
+2005,18 – 25,Realschulabschluss,ohne Migrationshintergrund,%,44.4551438810361
+2005,25 – 35,Realschulabschluss,ohne Migrationshintergrund,%,40.4848107677562
+2005,15 – 65,Realschulabschluss,ohne Migrationshintergrund,%,34.2487907461271
+2005,18 – 25,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,32.3349308768458
+2005,25 – 35,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,36.5941356726851
+2005,15 – 65,(Fach-)Hochschulreife,ohne Migrationshintergrund,%,25.9421018332533
