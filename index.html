@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script>
-async function askQuestion() {
-    const question = document.getElementById("question").value;
-    
-    const response = await fetch('https://<your-railway-app-url>/chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ question: question })
-    });
-
-    const data = await response.json();
-    document.getElementById("answer").innerText = data.answer;
-}
-</script>
-
 <head>
     <meta charset="UTF-8">
-    <title>Chatbot Migration-</title>
+    <title>Chatbot Migration</title>
     <script>
+        async function askQuestion() {
+            const question = document.getElementById("question").value;
+            
+            const response = await fetch('https://<your-railway-app-url>/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: question })
+            });
+
+            const data = await response.json();
+            document.getElementById("answer").innerText = data.answer;
+        }
+
         async function sendMessage() {
             const userInput = document.getElementById('userInput').value;
-            const response = await fetch('/chat', {
+            const response = await fetch('https://<your-railway-app-url>/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,19 +34,18 @@ async function askQuestion() {
             document.getElementById('userInput').value = '';
         }
     </script>
-<div>
-    <label for="question">Frage:</label>
-    <input type="text" id="question">
-    <button onclick="askQuestion()">Frage stellen</button>
-</div>
-<div>
-    <h3>Antwort:</h3>
-    <p id="answer"></p>
-</div>
-
-
 </head>
 <body>
+    <div>
+        <label for="question">Frage:</label>
+        <input type="text" id="question">
+        <button onclick="askQuestion()">Frage stellen</button>
+    </div>
+    <div>
+        <h3>Antwort:</h3>
+        <p id="answer"></p>
+    </div>
+    
     <div id="chatbox"></div>
     <input type="text" id="userInput" placeholder="Type a message...">
     <button onclick="sendMessage()">Send</button>
