@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 app = Flask(__name__)
 
 # Laden des trainierten Modells
-model_name = 'trained_model'  # Dies sollte das Verzeichnis sein, in dem Ihr Modell liegt
+model_name = 'LMM/trained_model'  # Dies sollte das Verzeichnis sein, in dem Ihr Modell liegt
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
