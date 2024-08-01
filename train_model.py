@@ -59,7 +59,7 @@ trainer = Trainer(
 trainer.train()
 
 # Speichern des trainierten Modells
-trainer.save_model('./trained_model')
+model.save_pretrained('./trained_model')
 tokenizer.save_pretrained('./trained_model')
 
 # Git LFS Befehle ausführen
