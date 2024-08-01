@@ -1,6 +1,8 @@
 import json
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModeling
+import os
+import subprocess
 
 # Schritt 1: Trainingsdaten laden
 with open('training_data.json', 'r', encoding='utf-8') as f:
@@ -59,3 +61,15 @@ trainer.train()
 # Speichern des trainierten Modells
 trainer.save_model('./trained_model')
 tokenizer.save_pretrained('./trained_model')
+
+# Git LFS Befehle ausführen
+if not os.path.exists(".gitattributes"):
+    subprocess.run(["git", "lfs", "install"])
+    subprocess.run(["git", "lfs", "track", "*.bin"])
+    subprocess.run(["git", "lfs", "track", "*.h5"])
+
+# Git Befehle zum Hinzufügen und Committen der Modell-Dateien
+subprocess.run(["git", "add", ".gitattributes"])
+subprocess.run(["git", "add", "trained_model/pytorch_model.bin"])
+subprocess.run(["git", "commit", "-m", "Add trained model with Git LFS"])
+subprocess.run(["git", "push"])
