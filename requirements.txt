@@ -1,9 +1,9 @@
 requests
 beautifulsoup4
-transformers==4.30.0  # Beispiel für eine spezifische Version, bitte anpassen
-torch==2.0.0  # Beispiel für eine spezifische Version, bitte anpassen
-datasets==2.12.0  # Beispiel für eine spezifische Version, bitte anpassen
-accelerate==0.21.0  # Beispiel für eine spezifische Version, bitte anpassen
+transformers
+torch
+datasets
+accelerate
 pandas
 flask
 gunicorn
