@@ -37,7 +37,13 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add trained_model/*
+          git lfs install
+          git pull origin main  # Pull Änderungen vor dem Push
+          git add trained_model/pytorch_model.bin
+          git add trained_model/config.json
+          git add trained_model/tokenizer_config.json
+          git add trained_model/vocab.json  # Falls vorhanden
+          git add trained_model/merges.txt  # Falls vorhanden
           git commit -m 'Add trained model'
           git push
         env:
