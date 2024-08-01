@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import os
 
 app = Flask(__name__)
 
@@ -16,5 +17,15 @@ def chat():
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return jsonify({'response': response})
 
+# Debug-Route, um sicherzustellen, dass die Modell-Dateien vorhanden sind
+@app.route('/debug', methods=['GET'])
+def debug():
+    files = []
+    for root, dirs, file_names in os.walk(model_name):
+        for file_name in file_names:
+            files.append(os.path.join(root, file_name))
+    return jsonify({'files': files})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
