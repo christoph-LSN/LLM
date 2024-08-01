@@ -70,6 +70,6 @@ if not os.path.exists(".gitattributes"):
 
 # Git Befehle zum Hinzufügen und Committen der Modell-Dateien
 subprocess.run(["git", "add", ".gitattributes"])
-subprocess.run(["git", "add", "trained_model/pytorch_model.bin"])
+subprocess.run(["git", "add", "pytorch_model.bin"])
 subprocess.run(["git", "commit", "-m", "Add trained model with Git LFS"])
 subprocess.run(["git", "push"])
