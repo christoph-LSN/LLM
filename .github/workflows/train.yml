@@ -14,6 +14,12 @@ jobs:
       - name: Checkout repository content
         uses: actions/checkout@v2
 
+      - name: Set up Git LFS
+        run: git lfs install
+
+      - name: Checkout LFS files
+        run: git lfs pull
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -25,14 +31,12 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run training script
-        run: |
-          python train_model.py
+        run: python train_model.py
 
       - name: Upload model to repository
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git pull origin main  # Pull Änderungen vor dem Push
           git add trained_model/*
           git commit -m 'Add trained model'
           git push
