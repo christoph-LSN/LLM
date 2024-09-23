@@ -1,7 +1,7 @@
 name: Scrape Webpage
 
 on:
-  workflow_dispatch:  # Nur manuelles Triggern
+  workflow_dispatch:  # Nur manuelles Triggern und los
 
 jobs:
   scrape:
