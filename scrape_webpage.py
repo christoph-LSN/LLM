@@ -5,7 +5,7 @@ from urllib.parse import urljoin, urlparse
 import csv
 import json
 
-# Setze die URL der Website, die gescrapet werden soll und los
+# Setze die URL der Website, die gescrapet werden soll und los jetzt
 BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
 # Setze die maximale Anzahl an zu durchsuchenden Seiten
 MAX_PAGES = 90
