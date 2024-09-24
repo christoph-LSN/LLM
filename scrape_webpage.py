@@ -4,17 +4,24 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import csv
 import json
+import re
 
-# Setze die URL der Website, die gescrapet werden soll und los jetzt
+# Setze die URL der Website, die gescrapet werden soll
 BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
-# Setze die maximale Anzahl an zu durchsuchenden Seiten
 MAX_PAGES = 90
-# Verzeichnis, in dem die CSV-Dateien gespeichert sind
 CSV_DIR = 'indicator_CSV'
-# Verzeichnis, in dem die Metadatendateien gespeichert sind
 META_DIR = 'indicator_meta'
-# Datei zur Speicherung der Trainingsdaten
 TRAINING_DATA_FILE = 'training_data.json'
+
+def clean_text(text):
+    """Bereinigt den Text von Steuerzeichen, mehrfachen Leerzeichen und HTML-Sonderzeichen."""
+    # Entferne Steuerzeichen und ersetze multiple Leerzeichen durch ein einziges
+    text = re.sub(r'\s+', ' ', text)
+    # Entferne typische HTML-Sonderzeichen
+    text = text.replace('\u00a0', ' ').replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
+    # Weitere HTML-Steuerzeichen entfernen (optional)
+    text = re.sub(r'[^\x00-\x7F]+', '', text)  # Entfernt nicht-ASCII-Zeichen
+    return text.strip()
 
 def get_all_links(url):
     """Gibt eine Liste aller internen Links auf der Seite zurück."""
@@ -40,11 +47,12 @@ def scrape_page(url, visited, data):
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
-        webpage_text = soup.get_text().strip()
+        webpage_text = soup.get_text(separator=" ").strip()
+        cleaned_text = clean_text(webpage_text)  # Bereinigung des Texts
         
-        if webpage_text:
+        if cleaned_text:
             data.append({
-                'content': webpage_text,
+                'content': cleaned_text,
                 'url': url
             })
 
@@ -77,7 +85,7 @@ def append_csv_and_meta_content(csv_dir, meta_dir, data):
                 # Lesen und Hinzufügen des Inhalts der Metadatendatei
                 if os.path.exists(meta_filepath):
                     with open(meta_filepath, 'r', encoding='utf-8') as metafile:
-                        meta_content = metafile.read().strip()
+                        meta_content = clean_text(metafile.read().strip())  # Bereinigung des Texts
                         data.append({
                             'content': meta_content,
                             'url': f'localfile://{meta_filepath}'
