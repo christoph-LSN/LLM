@@ -32,6 +32,19 @@ def get_all_links(url):
         print(f'Fehler beim Abrufen von Links von {url}: {e}')
     return links
 
+def extract_indicator_content(soup):
+    """Extrahiert den gesamten Text der Seite für einen Indikator."""
+    content = ""
+
+    # Beispielhafte Strukturen - Anpassung je nach Webseite notwendig:
+    # Sucht nach Abschnitten und Absätzen im Body-Content der Seite
+    for section in soup.find_all(['h1', 'h2', 'h3', 'p']):
+        section_text = section.get_text().strip()
+        if section_text:
+            content += section_text + "\n"
+    
+    return clean_text(content)
+
 def scrape_page(url, visited, data):
     """Scrapet den Inhalt einer Seite und fügt ihn zu visited hinzu."""
     if url in visited or len(visited) >= MAX_PAGES:
@@ -41,20 +54,14 @@ def scrape_page(url, visited, data):
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Finde die Indikatoren-Überschriften und deren Beschreibungen
-        headers = soup.find_all('h2')  # Annahme: Indikatoren haben h2 als Überschrift
-        for header in headers:
-            indicator_title = clean_text(header.get_text())
-            # Suchen nach der nächsten Definition im Text (p-Tags für die Beschreibungen)
-            paragraph = header.find_next('p')
-            if paragraph:
-                description = clean_text(paragraph.get_text())
-                data.append({
-                    'title': indicator_title,
-                    'description': description,
-                    'url': url
-                })
+
+        # Finde die Indikatoren-Überschriften und deren gesamten Inhalt
+        content = extract_indicator_content(soup)
+        if content:
+            data.append({
+                'content': content,
+                'url': url
+            })
 
         visited.add(url)
         links = get_all_links(url)
