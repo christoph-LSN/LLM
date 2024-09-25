@@ -1,1 +1,11 @@
-
+[
+    {
+        "id": "list",
+        "name": "Indikatorenübersicht",
+        "url": "https://christoph-lsn.github.io/MT_Site/indicator_list",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    }
+]
