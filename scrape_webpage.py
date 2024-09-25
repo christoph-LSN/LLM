@@ -11,7 +11,7 @@ BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
 INDICATOR_LIST_URL = 'https://christoph-lsn.github.io/MT_Site/indicator_list/'
 TRAINING_DATA_FILE = 'training_data.json'
 YAML_URL = 'https://raw.githubusercontent.com/christoph-LSN/IM-translations/2.3.0-dev/translations/de/global_indicators.yml'
-METADATA_DIR = 'LLM/indicator_meta/'
+METADATA_BASE_URL = 'https://raw.githubusercontent.com/christoph-LSN/LLM/main/indicator_meta/'
 
 # Lade die YAML-Datei mit den Indikatornamen herunter und parse sie
 def load_indicator_names():
@@ -51,15 +51,44 @@ def scrape_indicator_list():
         print("Fehler beim Laden der Indikator-Liste.")
         return []
 
-# Lade die Metadaten aus dem Verzeichnis LLM/indicator_meta
+# Lade die Metadaten aus der .md Datei auf GitHub
 def load_metadata(indicator_id):
-    metadata_file = os.path.join(METADATA_DIR, f'{indicator_id}.json')
-    if os.path.exists(metadata_file):
-        with open(metadata_file, 'r', encoding='utf-8') as f:
-            return json.load(f)
+    # Erstelle die URL zur Markdown-Datei auf GitHub
+    metadata_url = f'{METADATA_BASE_URL}{indicator_id}.md'
+    
+    # Lade die Markdown-Datei
+    response = requests.get(metadata_url)
+    if response.status_code == 200:
+        metadata_text = response.text
+        metadata = parse_metadata_from_markdown(metadata_text)
+        return metadata
     else:
-        print(f"Metadatei nicht gefunden: {metadata_file}")
+        print(f"Metadatei nicht gefunden: {metadata_url}")
         return {}
+
+# Extrahiere die relevanten Informationen aus dem Markdown-Text
+def parse_metadata_from_markdown(markdown_text):
+    metadata = {}
+    
+    # Extrahiere die gewünschten Felder aus dem Markdown-Text mit Regex oder spezifischen Parsen-Methoden
+    metadata['national_indicator_description'] = extract_field_from_markdown(markdown_text, 'national_indicator_description')
+    metadata['computation_calculations'] = extract_field_from_markdown(markdown_text, 'computation_calculations')
+    metadata['other_info'] = extract_field_from_markdown(markdown_text, 'other_info')
+    
+    # Tags extrahieren, um den Datenstand zu bekommen
+    tags = extract_field_from_markdown(markdown_text, 'tags')
+    if tags:
+        metadata['tags'] = tags.split('\n')[0].strip()  # Erstes Element als Datenstand
+    
+    return metadata
+
+# Hilfsfunktion, um ein bestimmtes Feld aus dem Markdown-Text zu extrahieren
+def extract_field_from_markdown(markdown_text, field_name):
+    pattern = re.compile(rf'{field_name}:\s*([\s\S]+?)(\n[a-zA-Z_]+:|\Z)', re.MULTILINE)
+    match = pattern.search(markdown_text)
+    if match:
+        return match.group(1).strip()
+    return None
 
 # JSON-Daten erstellen
 def create_json_output(indicator_links, yaml_data):
@@ -82,11 +111,7 @@ def create_json_output(indicator_links, yaml_data):
             'definition': metadata.get('national_indicator_description'),  # Definition des Indikators
             'methodology': metadata.get('computation_calculations'),       # Methodische Hinweise
             'additional_info': metadata.get('other_info'),                 # Weiterführende Hinweise
-            'data_status': metadata.get('tags', [None, None])[0],          # Erster Eintrag im 'tags'-Feld für Datenstand
-            'source_url_1': metadata.get('source_url_1'),                  # Quelle 1 URL
-            'source_url_text_1': metadata.get('source_url_text_1'),        # Quelle 1 Text
-            'source_url_2': metadata.get('source_url_2'),                  # Quelle 2 URL
-            'source_url_text_2': metadata.get('source_url_text_2')         # Quelle 2 Text
+            'data_status': metadata.get('tags', None)                      # Erster Eintrag im 'tags'-Feld für Datenstand
         }
 
         output_data.append(entry)
