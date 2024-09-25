@@ -1,82 +1,106 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin
 import json
-import re
+import yaml
 
 # Setze die URL der Website, die gescrapet werden soll
 BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
-MAX_PAGES = 90
+INDICATOR_LIST_URL = 'https://christoph-lsn.github.io/MT_Site/indicator_list/'
 TRAINING_DATA_FILE = 'training_data.json'
+YAML_URL = 'https://raw.githubusercontent.com/christoph-LSN/IM-translations/2.3.0-dev/translations/de/global_indicators.yml'
+METADATA_DIR = 'LLM/indicator_meta/'
 
+# Lade die YAML-Datei mit den Indikatornamen herunter und parse sie
+def load_indicator_names():
+    response = requests.get(YAML_URL)
+    if response.status_code == 200:
+        return yaml.safe_load(response.text)
+    else:
+        print("Fehler beim Laden der YAML-Datei.")
+        return None
+
+# Text reinigen (falls erforderlich)
 def clean_text(text):
-    """Bereinigt den Text von Steuerzeichen, mehrfachen Leerzeichen und HTML-Sonderzeichen."""
-    text = re.sub(r'\s+', ' ', text)  # Entferne doppelte Leerzeichen
-    text = text.replace('\u00a0', ' ').replace('\u2019', "'").replace('\u201c', '"').replace('\u201d', '"')
-    text = re.sub(r'[^\x00-\x7F]+', '', text)  # Entfernt nicht-ASCII-Zeichen
     return text.strip()
 
-def get_all_links(url):
-    """Gibt eine Liste aller internen Links auf der Seite zurück."""
-    links = set()
-    try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
+# Hauptseite scrapen und alle Links zu den Indikatorseiten sammeln
+def scrape_indicator_list():
+    response = requests.get(INDICATOR_LIST_URL)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        indicator_links = []
+        
+        # Alle Links zu den Indikatorseiten sammeln
         for link in soup.find_all('a', href=True):
             href = link['href']
-            absolute_url = urljoin(url, href)
-            if urlparse(absolute_url).netloc == urlparse(BASE_URL).netloc:
-                links.add(absolute_url)
-    except Exception as e:
-        print(f'Fehler beim Abrufen von Links von {url}: {e}')
-    return links
+            # Nur Links zu den Indikatorseiten (Filter für relevante Seiten)
+            if "indicator_" in href:
+                full_url = urljoin(BASE_URL, href)
+                indicator_links.append({
+                    'name': clean_text(link.text),
+                    'url': full_url
+                })
+        return indicator_links
+    else:
+        print("Fehler beim Laden der Indikator-Liste.")
+        return []
 
-def extract_indicator_content(soup):
-    """Extrahiert den gesamten Text der Seite für einen Indikator."""
-    content = ""
+# Lade die Metadaten aus dem Verzeichnis LLM/indicator_meta
+def load_metadata(indicator_id):
+    metadata_file = os.path.join(METADATA_DIR, f'{indicator_id}.json')
+    if os.path.exists(metadata_file):
+        with open(metadata_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    else:
+        print(f"Metadatei nicht gefunden: {metadata_file}")
+        return {}
 
-    # Beispielhafte Strukturen - Anpassung je nach Webseite notwendig:
-    # Sucht nach Abschnitten und Absätzen im Body-Content der Seite
-    for section in soup.find_all(['h1', 'h2', 'h3', 'p']):
-        section_text = section.get_text().strip()
-        if section_text:
-            content += section_text + "\n"
-    
-    return clean_text(content)
+# JSON-Daten erstellen
+def create_json_output(indicator_links, yaml_data):
+    output_data = []
+    for indicator in indicator_links:
+        indicator_url = indicator['url']
+        indicator_id = indicator_url.split('/')[-1].replace('indicator_', '').replace('.html', '')
+        
+        # Lade die Metadaten für diesen Indikator
+        metadata = load_metadata(indicator_id)
+        
+        # Finde den Indikatornamen in der YAML-Datei
+        indicator_name = yaml_data.get(f'{indicator_id}-title', indicator['name'])
 
-def scrape_page(url, visited, data):
-    """Scrapet den Inhalt einer Seite und fügt ihn zu visited hinzu."""
-    if url in visited or len(visited) >= MAX_PAGES:
+        entry = {
+            'id': indicator_id,
+            'name': indicator_name,
+            'url': indicator_url,
+            'definition': metadata.get('national_indicator_description'),
+            'methodology': metadata.get('computation_calculations'),
+            'additional_info': metadata.get('other_info'),
+            'data_status': metadata.get('tags', [None, None])[1]  # Zweites Element als Datenstand
+        }
+
+        output_data.append(entry)
+    return output_data
+
+# Hauptfunktion zum Scrapen und Erstellen der JSON-Datei
+def main():
+    # Lade die YAML-Daten
+    yaml_data = load_indicator_names()
+    if yaml_data is None:
         return
 
-    print(f'Scraping {url}')
-    try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
+    # Scrape die Indikator-Liste
+    indicator_links = scrape_indicator_list()
 
-        # Finde die Indikatoren-Überschriften und deren gesamten Inhalt
-        content = extract_indicator_content(soup)
-        if content:
-            data.append({
-                'content': content,
-                'url': url
-            })
+    # Erstellen der JSON-Datenstruktur
+    json_data = create_json_output(indicator_links, yaml_data)
 
-        visited.add(url)
-        links = get_all_links(url)
-        for link in links:
-            scrape_page(link, visited, data)
-    except Exception as e:
-        print(f'Fehler beim Scraping von {url}: {e}')
+    # Speichern der Daten in einer JSON-Datei
+    with open(TRAINING_DATA_FILE, 'w', encoding='utf-8') as f:
+        json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+    print(f"JSON-Datei '{TRAINING_DATA_FILE}' erfolgreich erstellt.")
 
 if __name__ == "__main__":
-    visited_urls = set()
-    data = []
-    scrape_page(BASE_URL, visited_urls, data)
-    
-    # Speichern der gesammelten Daten in einer JSON-Datei
-    with open(TRAINING_DATA_FILE, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
-    
-    print('Scraping abgeschlossen und Trainingsdaten gespeichert.')
+    main()
