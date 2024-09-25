@@ -71,9 +71,9 @@ def parse_metadata_from_markdown(markdown_text):
     metadata = {}
     
     # Extrahiere die gewünschten Felder aus dem Markdown-Text mit Regex oder spezifischen Parsen-Methoden
-    metadata['national_indicator_description'] = extract_field_from_markdown(markdown_text, 'national_indicator_description')
-    metadata['computation_calculations'] = extract_field_from_markdown(markdown_text, 'computation_calculations')
-    metadata['other_info'] = extract_field_from_markdown(markdown_text, 'other_info')
+    metadata['national_indicator_description'] = clean_field(extract_field_from_markdown(markdown_text, 'national_indicator_description'))
+    metadata['computation_calculations'] = clean_field(extract_field_from_markdown(markdown_text, 'computation_calculations'))
+    metadata['other_info'] = clean_field(extract_field_from_markdown(markdown_text, 'other_info'))
     
     # Tags extrahieren, um den Datenstand zu bekommen
     tags = extract_field_from_markdown(markdown_text, 'tags')
@@ -89,6 +89,14 @@ def extract_field_from_markdown(markdown_text, field_name):
     if match:
         return match.group(1).strip()
     return None
+
+# Funktion zur Bereinigung von Markdown-Spezifischen Symbolen wie ">-" und "\r\n"
+def clean_field(field_text):
+    if field_text:
+        # Entferne Markdown-spezifische Symbole wie ">-", "\r\n" und andere überflüssige Zeichen
+        field_text = re.sub(r'>-\s*|\r\n|\n', ' ', field_text)
+        field_text = re.sub(r'\s+', ' ', field_text)  # Mehrfache Leerzeichen durch einfache ersetzen
+    return field_text.strip() if field_text else field_text
 
 # JSON-Daten erstellen
 def create_json_output(indicator_links, yaml_data):
