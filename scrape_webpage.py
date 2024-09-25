@@ -79,10 +79,14 @@ def create_json_output(indicator_links, yaml_data):
             'id': indicator_id,
             'name': indicator_name,
             'url': indicator_url,
-            'definition': metadata.get('national_indicator_description'),
-            'methodology': metadata.get('computation_calculations'),
-            'additional_info': metadata.get('other_info'),
-            'data_status': metadata.get('tags', [None, None])[1]  # Zweites Element als Datenstand
+            'definition': metadata.get('national_indicator_description'),  # Definition des Indikators
+            'methodology': metadata.get('computation_calculations'),       # Methodische Hinweise
+            'additional_info': metadata.get('other_info'),                 # Weiterführende Hinweise
+            'data_status': metadata.get('tags', [None, None])[0],          # Erster Eintrag im 'tags'-Feld für Datenstand
+            'source_url_1': metadata.get('source_url_1'),                  # Quelle 1 URL
+            'source_url_text_1': metadata.get('source_url_text_1'),        # Quelle 1 Text
+            'source_url_2': metadata.get('source_url_2'),                  # Quelle 2 URL
+            'source_url_text_2': metadata.get('source_url_text_2')         # Quelle 2 Text
         }
 
         output_data.append(entry)
