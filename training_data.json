@@ -1,8 +1,584 @@
 [
     {
-        "id": "list",
-        "name": "Indikatorenübersicht",
-        "url": "https://christoph-lsn.github.io/MT_Site/indicator_list",
+        "id": "1-1-1",
+        "name": "Bevölkerung in Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-1-2",
+        "name": "Bevölkerungsentwicklung in Niedersachsen (Veränderung in Prozent)",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-1-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-1-3",
+        "name": "Bevölkerungsentwicklung in Niedersachsen (Veränderung in Prozent gegenüber dem Vorjahr)",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-1-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-1",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-2",
+        "name": "Anteil der Ausländerinnen und Ausländer in Niedersachsen in Prozent",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-3",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen nach Aufenthaltsdauer in Jahren und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-4",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen nach ausgewählten Staatsangehörigkeiten¹⁾",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-5",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen nach ausgewählten Staatsangehörigkeiten und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-5/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-6",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen nach Altersgruppen (von... bis Jahre)",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-6/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-7",
+        "name": "Ausländerinnen und Ausländer in Niedersachsen nach Durchschnittsalter",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-7/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-8",
+        "name": "Lebendgeborene nach Nationalität",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-8/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-2-5_old",
+        "name": "1.2.5_old global_indicators.1-2-5_old-title",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-2-5_old/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-3-1",
+        "name": "Menschen mit Migrationshintergrund",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-3-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-3-2",
+        "name": "Menschen mit Migrationshintergrund in den regionalen Anpassungsschichten",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-3-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-3-3",
+        "name": "Menschen mit Migrationshintergrund nach Altersgruppen und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-3-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-3-4",
+        "name": "Menschen mit Migrationshintergrund nach Herkunftsland und Geschlecht (in 1000)",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-3-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-4-1",
+        "name": "Zuzüge über die Bundesgrenze nach Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-4-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-4-2",
+        "name": "Fortzüge über die Bundesgrenze aus Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-4-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-4-3",
+        "name": "Saldo der Zu- und Fortzüge über die Bundesgrenzen von und nach Niedersachsen nach ausgewählten Staatsangehörigkeiten",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-4-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-4-4",
+        "name": "Zu- und Fortzüge über die Bundesgrenzen von und nach Niedersachsen nach Altersgruppen",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-4-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "1-4-5",
+        "name": "Saldo der Zu- und Fortzüge über die Bundesgrenzen von und nach Niedersachsen nach Nationalität und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/1-4-5/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-1-1",
+        "name": "Ausländerinnen und Ausländer mit und ohne Aufenthaltstitel",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-1-2",
+        "name": "Ausländerinnen und Ausländer nach Aufenthaltsstatus - kein Aufenthalstitel erforderlich",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-1-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-1-3",
+        "name": "Ausländerinnen und Ausländer mit zeitlich befristeten und zeitlich unbefristeten Aufenthalstiteln",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-1-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-1-4",
+        "name": "Ausländerinnen und Ausländer mit befristeten Aufenthaltstitel nach Grund der Befristung",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-1-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-1-5",
+        "name": "Ausländerinnen und Ausländer ohne Aufenthaltstitel",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-1-5/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-2-1",
+        "name": "EASY-Zugänge in Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-2-2",
+        "name": "Durchschnittliche Bewohnerzahl in der Landesaufnahmebehörde Niedersachsen (LAB NI)",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-2-3",
+        "name": "Abschiebungen und Überstellungen nach der Dublin III VO",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-2-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-2-4",
+        "name": "In Niedersachsen gestellte Asylanträge",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-2-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-3-1",
+        "name": "Einbürgerungen nach Niedersachsen (Anzahl)",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-3-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-3-2",
+        "name": "Veränderungen der Anzahl der Einbürgerungen",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-3-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-3-3",
+        "name": "Anteil der Einbürgerungen an allen Ausländerinnen und Ausländern und an allen Einwohnerinnen und Einwohnern",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-3-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "2-3-4",
+        "name": "Einbürgerungen nach Niedersachsen nach ausgewählten Staatsangehörigkeiten",
+        "url": "https://christoph-lsn.github.io/MT_Site/2-3-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "3-1-1",
+        "name": "Betreuungsquote von Kindern bis unter 6 Jahren mit und ohne Zuwanderungsgeschichte in Kindertagesbetreuung",
+        "url": "https://christoph-lsn.github.io/MT_Site/3-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "3-1-2",
+        "name": "Anteil der betreuten Kinder bis unter 6 Jahren mit Zuwanderungsgeschichte in Tageseinrichtungen",
+        "url": "https://christoph-lsn.github.io/MT_Site/3-1-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "3-1-3",
+        "name": "Betreute Kinder bis unter 3 Jahren und von 3 bis unter 6 Jahren mit Zuwanderungsgeschichte in Kindertagesbetreuung",
+        "url": "https://christoph-lsn.github.io/MT_Site/3-1-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-1",
+        "name": "Verteilung der Schülerinnen und Schüler im 8. Schuljahrgang",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-2",
+        "name": "Schulabgängerinnen und Schulabgänger nach Nationalität und Abschlussart",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-3",
+        "name": "Höchster Schulabschluss an allgemein bildenden Schulen nach Zuwanderungsgeschichte und Altersgruppen (in Prozent)",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-4",
+        "name": "Schulabgängerinnen und Schulabgänger ohne Hauptschulabschluss nach Nationalität",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-5",
+        "name": "Frühe Schulabgängerinnen und Schulabgänger sowie Personen mit niedrigem Bildungsstand nach Migrationsstatus und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-5/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-1-6",
+        "name": "Schulabgängerinnen und Schulabgänger an berufsbildenden Schulen nach Schulart und Schulabschluss",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-1-6/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-2-1",
+        "name": "Höchster beruflicher Abschluss der 25- bis unter 35-Jährigen nach Zuwanderungsgeschichte und Geschlecht (in Prozent)",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-2-2",
+        "name": "Ausbildungsbeteiligungsquote im dualen System nach Geschlecht und Nationalität",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-3-1",
+        "name": "Ausländische Studentinnen und Studenten nach Land des Erwerbs der Studienberechtigung",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-3-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-3-2",
+        "name": "Hochschulabschlüsse im Prüfungsjahr nach Fächergruppe, Nationalität und Geschlecht der Absolventinnen und Absolventen",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-3-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "4-4-1",
+        "name": "Anerkennungsverfahren nach dem Berufsqualifikationsfeststellungsgesetz (BQFG) sowie dem Niedersächsischen Berufsqualifikationsfeststellungsgesetz (NBQFG)",
+        "url": "https://christoph-lsn.github.io/MT_Site/4-4-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-1-1",
+        "name": "Erwerbstätige Menschen mit Zuwanderungsgeschichte in Niedersachsen nach Wirtschaftsabschnitten und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-1-2",
+        "name": "Erwerbsquote, Erwerbstätigenquote und Erwerbslosenanteil nach Zuwanderungsgeschichte",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-1-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-2-1",
+        "name": "Sozialversicherungspflichtig beschäftigte Ausländerinnen und Ausländer",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-2-2",
+        "name": "Sozialversicherungspflichtig beschäftigte Ausländerinnen und Ausländer nach Art der Ausbildung",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-3-1",
+        "name": "Erwerbslosenanteil nach Zuwanderungsgeschichte",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-3-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-3-2",
+        "name": "Entwicklung der Arbeitslosenquote",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-3-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-3-3",
+        "name": "Entwicklung der Abstände der Arbeitslosenquoten nach Nationalität",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-3-3/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "5-3-4",
+        "name": "Arbeitslose nach Zuwanderungsgeschichte, Rechtskreis und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/5-3-4/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "6-1-1",
+        "name": "Relative Einkommensungleichheit in Niedersachsen und Deutschland (Armutsgefährdungsquoten)",
+        "url": "https://christoph-lsn.github.io/MT_Site/6-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "6-2-1",
+        "name": "Empfängerinnen und Empfänger von Mindestsicherungsleistungen",
+        "url": "https://christoph-lsn.github.io/MT_Site/6-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "6-2-2",
+        "name": "Empfängerinnen und Empfänger von Mindestsicherungsleistungen nach Altersgruppen (Anzahl je 1 000 Einwohnerinnen und Einwohner der betreffenden Bevölkerungsgruppe)",
+        "url": "https://christoph-lsn.github.io/MT_Site/6-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "6-3-1",
+        "name": "Bevölkerung am Ort der Hauptwohnung nach Zuwanderungsgeschichte und überwiegendem Lebensunterhalt in Niedersachsen",
+        "url": "https://christoph-lsn.github.io/MT_Site/6-3-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "6-3-2",
+        "name": "Haushalte nach Haushaltsgröße, Migrationsstatus und Haushaltsnettoeinkommen",
+        "url": "https://christoph-lsn.github.io/MT_Site/6-3-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "7-1-1",
+        "name": "Paare mit und ohne Kinder und Familien nach Paar-Familientyp und Zuwanderungsgeschichte",
+        "url": "https://christoph-lsn.github.io/MT_Site/7-1-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "7-2-1",
+        "name": "Mittlere Wohnfläche in m² und mittlere Bruttokaltmiete in Niedersachsen nach Zuwanderungsgeschichte (in 1000)",
+        "url": "https://christoph-lsn.github.io/MT_Site/7-2-1/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "7-2-2",
+        "name": "Bezugspersonen in Privathaushalten mit selbst bewohntem Wohneigentum sowie Eigentümerquoten nach Migrationsstatus und Geschlecht",
+        "url": "https://christoph-lsn.github.io/MT_Site/7-2-2/",
+        "definition": null,
+        "methodology": null,
+        "additional_info": null,
+        "data_status": null
+    },
+    {
+        "id": "8-1-1",
+        "name": "Bei Bundes- und Landtagswahlen wahlberechtigte Bevölkerung mit Zuwanderungsgeschichte",
+        "url": "https://christoph-lsn.github.io/MT_Site/8-1-1/",
         "definition": null,
         "methodology": null,
         "additional_info": null,
