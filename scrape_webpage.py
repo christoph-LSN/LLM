@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import json
 import yaml
+import re
 
 # Setze die URL der Website, die gescrapet werden soll
 BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
@@ -31,12 +32,15 @@ def scrape_indicator_list():
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
         indicator_links = []
-        
-        # Alle Links zu den Indikatorseiten sammeln
+
+        # Regex zur Identifizierung der Links mit dem Muster '1-1-1'
+        indicator_pattern = re.compile(r'\d+-\d+-\d+')
+
+        # Alle Links auf der Seite durchsuchen
         for link in soup.find_all('a', href=True):
             href = link['href']
-            # Nur Links zu den Indikatorseiten (Filter für relevante Seiten)
-            if "indicator_" in href:
+            # Prüfen, ob der Link das Muster '1-1-1' enthält
+            if indicator_pattern.search(href):
                 full_url = urljoin(BASE_URL, href)
                 indicator_links.append({
                     'name': clean_text(link.text),
@@ -61,8 +65,9 @@ def load_metadata(indicator_id):
 def create_json_output(indicator_links, yaml_data):
     output_data = []
     for indicator in indicator_links:
+        # Extrahiere die Indikator-ID aus der URL
         indicator_url = indicator['url']
-        indicator_id = indicator_url.split('/')[-1].replace('indicator_', '').replace('.html', '')
+        indicator_id = indicator_url.split('/')[-2]  # Holt den '1-1-1' Teil der URL
         
         # Lade die Metadaten für diesen Indikator
         metadata = load_metadata(indicator_id)
