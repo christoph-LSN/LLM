@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 import json
 import yaml
 import re
-import csv
+# import csv  # CSV-Modul wird nicht mehr benötigt, daher auskommentiert
 
 # Setze die URL der Website, die gescrapet werden soll
 BASE_URL = 'https://christoph-lsn.github.io/MT_Site/'
@@ -13,7 +13,7 @@ INDICATOR_LIST_URL = 'https://christoph-lsn.github.io/MT_Site/indicator_list/'
 TRAINING_DATA_FILE = 'training_data.json'
 YAML_URL = 'https://raw.githubusercontent.com/christoph-LSN/IM-translations/2.3.0-dev/translations/de/global_indicators.yml'
 METADATA_BASE_URL = 'https://raw.githubusercontent.com/christoph-LSN/LLM/main/indicator_meta/'
-CSV_BASE_URL = 'https://raw.githubusercontent.com/christoph-LSN/LLM/main/indicator_CSV/'
+# CSV_BASE_URL = 'https://raw.githubusercontent.com/christoph-LSN/LLM/main/indicator_CSV/'  # URL für CSV-Daten auskommentiert
 
 # Lade die YAML-Datei mit den Indikatornamen herunter und parse sie
 def load_indicator_names():
@@ -100,24 +100,24 @@ def clean_field(field_text):
         field_text = re.sub(r'\s+', ' ', field_text)  # Mehrfache Leerzeichen durch einfache ersetzen
     return field_text.strip() if field_text else field_text
 
-# Funktion zum Laden der CSV-Daten eines Indikators
-def load_csv_data(indicator_id):
-    csv_url = f'{CSV_BASE_URL}indicator_{indicator_id}.csv'
+# # Funktion zum Laden der CSV-Daten eines Indikators (auskommentiert)
+# def load_csv_data(indicator_id):
+#     csv_url = f'{CSV_BASE_URL}indicator_{indicator_id}.csv'
     
-    response = requests.get(csv_url)
-    if response.status_code == 200:
-        csv_data = []
-        decoded_content = response.content.decode('utf-8')
-        csv_reader = csv.DictReader(decoded_content.splitlines())
+#     response = requests.get(csv_url)
+#     if response.status_code == 200:
+#         csv_data = []
+#         decoded_content = response.content.decode('utf-8')
+#         csv_reader = csv.DictReader(decoded_content.splitlines())
 
-        # Jede Zeile in ein Dictionary umwandeln und zur Liste hinzufügen
-        for row in csv_reader:
-            csv_data.append(row)
+#         # Jede Zeile in ein Dictionary umwandeln und zur Liste hinzufügen
+#         for row in csv_reader:
+#             csv_data.append(row)
         
-        return csv_data
-    else:
-        print(f"CSV-Datei nicht gefunden: {csv_url}")
-        return None
+#         return csv_data
+#     else:
+#         print(f"CSV-Datei nicht gefunden: {csv_url}")
+#         return None
 
 # JSON-Daten erstellen
 def create_json_output(indicator_links, yaml_data):
@@ -133,8 +133,8 @@ def create_json_output(indicator_links, yaml_data):
         # Finde den Indikatornamen in der YAML-Datei
         indicator_name = yaml_data.get(f'{indicator_id}-title', indicator['name'])
 
-        # Lade die CSV-Daten
-        csv_data = load_csv_data(indicator_id)
+        # Lade die CSV-Daten (auskommentiert)
+        # csv_data = load_csv_data(indicator_id)
 
         entry = {
             'id': indicator_id,
@@ -144,7 +144,7 @@ def create_json_output(indicator_links, yaml_data):
             'methodology': metadata.get('computation_calculations'),       # Methodische Hinweise
             'additional_info': metadata.get('other_info'),                 # Weiterführende Hinweise
             'data_status': metadata.get('tags', None),                     # Erster Eintrag im 'tags'-Feld für Datenstand
-            'csv_data': csv_data                                           # CSV-Daten hinzufügen
+            # 'csv_data': csv_data                                           # CSV-Daten auskommentiert
         }
 
         output_data.append(entry)
