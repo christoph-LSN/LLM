@@ -103,7 +103,7 @@ def clean_field(field_text):
 
 # # Funktion zum Laden der CSV-Daten eines Indikators (auskommentiert)
 def load_csv_data(indicator_id):
-csv_url = f'{CSV_BASE_URL}indicator_{indicator_id}.csv'
+    csv_url = f'{CSV_BASE_URL}indicator_{indicator_id}.csv'
     
      response = requests.get(csv_url)
      if response.status_code == 200:
