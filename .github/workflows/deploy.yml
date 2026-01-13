@@ -31,4 +31,3 @@ jobs:
       # Falls GitHub Pages die Site automatisch baut, brauchst du evtl. nur
       # den Upload der generierten Dateien committen – ansonsten Jekyll-Build
       # + Deploy auf gh-pages ergänzen.
-
