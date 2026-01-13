@@ -1,4 +1,3 @@
-
 # tools/build_static_rag.py
 import json, os, csv, glob, yaml
 
