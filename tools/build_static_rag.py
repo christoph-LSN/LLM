@@ -1,37 +1,34 @@
-
 #!/usr/bin/env python3
 # tools/build_static_rag.py
 # Erzeugt assets/data/facts.json und assets/data/docs.json aus Open-SDG CSV/Metadaten.
-# Architektur A (rein statisch): Keine externen Services, nur Dateiverarbeitung.
 
 import os, sys, json, csv, glob, re
 from typing import Dict, Any, List
 
-    print("Missing dependency: pyyaml", file=sys.stderr)# --------------------- Abhängigkeiten prüfen ---------------------
+# --- Abhängigkeiten prüfen (sauber, mit korrekten Zeilenumbrüchen) ---
+try:
+    import yaml
+except ImportError:
+    print("Missing dependency: pyyaml", file=sys.stderr)
     sys.exit(1)
 
 # --------------------- Konfiguration ------------------------------
-# Pfade können per ENV überschrieben werden (z. B. im CI)
 CSV_DIR  = os.getenv("CSV_DIR",  "indicator_CSV")
 META_DIR = os.getenv("META_DIR", "indicator_meta")
 OUT_DIR  = os.getenv("OUT_DIR",  "assets/data")
 
-# Für korrekte Links in den JSONs (GitHub Pages Projektseiten -> "/<RepoName>")
+# Für korrekte Links (z. B. GitHub Pages Projektseiten -> "/<RepoName>")
 SITE_BASEURL = (os.getenv("SITE_BASEURL", "") or "").rstrip("/")
-# Standard-URL-Prefix der Indikatorseiten in Open SDG ist "/indicators"
 INDICATOR_URL_PREFIX = (os.getenv("INDICATOR_URL_PREFIX", "/indicators") or "").strip("/")
 
-# Maximale Länge der Kurzdefinition in docs.json
 SUMMARY_MAXLEN = int(os.getenv("SUMMARY_MAXLEN", "600"))
 
 # --------------------- Hilfsfunktionen ----------------------------
 def indicator_url(ind_id: str) -> str:
-    """Baue die Indikator-URL: /<baseurl>/indicators/<id>/"""
     base = SITE_BASEURL + "/" if SITE_BASEURL else "/"
     return f"{base}{INDICATOR_URL_PREFIX}/{ind_id}/".replace("//", "/")
 
 def load_meta_yaml() -> Dict[str, Dict[str, Any]]:
-    """Lade alle YAML-Metadateien in ein Dict: {id: meta}"""
     meta_map: Dict[str, Dict[str, Any]] = {}
     paths = sorted(glob.glob(os.path.join(META_DIR, "*.y*ml")))
     if not paths:
@@ -55,8 +52,7 @@ def meta_unit(meta: Dict[str, Any]) -> str:
 def meta_source(meta: Dict[str, Any]) -> str:
     for k in ("DATA_SOURCE_TYPE", "COMPILING_ORG", "CONTACT_ORGANISATION", "SOURCE_TYPE", "source"):
         v = meta.get(k)
-        if isinstance(v, list):
-            v = ", ".join([str(x) for x in v if x])
+        if isinstance(v, list): v = ", ".join([str(x) for x in v if x])
         if v: return str(v)
     return ""
 
@@ -71,15 +67,12 @@ def meta_summary(meta: Dict[str, Any], maxlen: int = SUMMARY_MAXLEN) -> str:
 def parse_float(val) -> float:
     if val is None or val == "":
         raise ValueError("empty")
-    # Erlaube deutschsprachige CSVs mit Komma als Dezimaltrenner
-    return float(str(val).replace(",", "."))
+    return float(str(val).replace(",", "."))  # deutsch: 3,5 -> 3.5
 
 # --------------------- Hauptlogik --------------------------------
 def build():
-    # Zielordner sicherstellen
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    # Metadaten laden (für Einheit/Quelle/Titel/Definition)
     meta_map = load_meta_yaml()
 
     facts: Dict[str, Any] = {}
@@ -103,7 +96,6 @@ def build():
                         y = int(float(y_raw))
                         v = parse_float(v_raw)
                     except Exception:
-                        # Zeile überspringen, wenn Jahr/Wert fehlt/ungültig ist
                         continue
                     series.append({"year": y, "value": v})
         except Exception as e:
@@ -127,7 +119,16 @@ def build():
             "url"     : indicator_url(ind_id)
         })
 
+    # 3) Schreiben
+    out_facts = os.path.join(OUT_DIR, "facts.json")
+    out_docs  = os.path.join(OUT_DIR, "docs.json")
+    with open(out_facts, "w", encoding="utf-8") as f:
+        json.dump(facts, f, ensure_ascii=False)
+    with open(out_docs, "w", encoding="utf-8") as f:
+        json.dump(docs, f, ensure_ascii=False)
 
-try:
-    import yaml
-except ImportError:
+    print(f"[OK] geschrieben: {out_facts}  (Indikatoren: {len(facts)})")
+    print(f"[OK] geschrieben: {out_docs}   (Dokumente:  {len(docs)})")
+
+if __name__ == "__main__":
+    build()
