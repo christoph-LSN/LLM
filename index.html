@@ -1,53 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Chatbot Migration</title>
-    <script>
-        async function askQuestion() {
-            const question = document.getElementById("question").value;
-            
-            const response = await fetch('https://<your-railway-app-url>/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ question: question })
-            });
+    <title>Chatbot Integrationsmonitoring</title>
 
-            const data = await response.json();
-            document.getElementById("answer").innerText = data.answer;
-        }
+    <!-- Chatbot CSS -->
+    <link rel="stylesheet" href="/assets/css/chatbot.css">
 
-        async function sendMessage() {
-            const userInput = document.getElementById('userInput').value;
-            const response = await fetch('https://<your-railway-app-url>/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message: userInput }),
-            });
-            const data = await response.json();
-            document.getElementById('chatbox').innerHTML += `<p>User: ${userInput}</p>`;
-            document.getElementById('chatbox').innerHTML += `<p>Bot: ${data.response}</p>`;
-            document.getElementById('userInput').value = '';
-        }
-    </script>
+    <!-- Chatbot JS -->
+    <script src="/assets/js/chatbot.js"></script>
+
 </head>
 <body>
-    <div>
-        <label for="question">Frage:</label>
-        <input type="text" id="question">
-        <button onclick="askQuestion()">Frage stellen</button>
-    </div>
-    <div>
-        <h3>Antwort:</h3>
-        <p id="answer"></p>
-    </div>
-    
-    <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
+
+    <!-- Optional: Hauptinhalt der Seite -->
+    <h1>Willkommen beim Integrationsmonitoring</h1>
+    <p>Hier können Sie den Chatbot nutzen, um Informationen zu Indikatoren abzufragen.</p>
+
+    <!-- Chatbot Initialisierung -->
+    <script>
+      window.OpenSDGChatbot.init({
+        dataPaths: {
+          facts: "/assets/data/facts.json",
+          docs:  "/assets/data/docs.json"
+        },
+        lang: "de"
+      });
+    </script>
+
 </body>
 </html>
