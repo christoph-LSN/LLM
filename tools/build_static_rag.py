@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # tools/build_static_rag.py
-# Erzeugt assets/data/facts.json und assets/data/docs.json aus Open-SDG CSV/Metadaten.
+# Erzeugt assets/data/facts.json und assets/data/docs.json
+# aus Open-SDG CSV- und Markdown/YAML-Metadaten.
 
 import os
 import sys
@@ -10,7 +11,7 @@ import glob
 import re
 from typing import Dict, Any, List
 
-# --- Abhängigkeiten prüfen (sauber, mit korrekten Zeilenumbrüchen) ---
+# --- Abhängigkeiten prüfen ----------------------------------------
 try:
     import yaml
 except ImportError:
@@ -24,7 +25,9 @@ OUT_DIR = os.getenv("OUT_DIR", "assets/data")
 
 # Für korrekte Links (z. B. GitHub Pages Projektseiten -> "/<RepoName>")
 SITE_BASEURL = (os.getenv("SITE_BASEURL", "") or "").rstrip("/")
-INDICATOR_URL_PREFIX = (os.getenv("INDICATOR_URL_PREFIX", "/indicators") or "").strip("/")
+INDICATOR_URL_PREFIX = (
+    os.getenv("INDICATOR_URL_PREFIX", "/indicators") or ""
+).strip("/")
 
 SUMMARY_MAXLEN = int(os.getenv("SUMMARY_MAXLEN", "600"))
 
@@ -35,20 +38,54 @@ def indicator_url(ind_id: str) -> str:
 
 
 def load_meta_yaml() -> Dict[str, Dict[str, Any]]:
+    """
+    Lädt Metadaten aus:
+    - *.yml / *.yaml
+    - *.md mit YAML-Frontmatter (Open-SDG Standard)
+    """
     meta_map: Dict[str, Dict[str, Any]] = {}
-    paths = sorted(glob.glob(os.path.join(META_DIR, "*.y*ml")))
+
+    paths = sorted(
+        glob.glob(os.path.join(META_DIR, "*.y*ml"))
+        + glob.glob(os.path.join(META_DIR, "*.md"))
+    )
 
     if not paths:
-        print(f"[WARN] Keine Metadateien in {META_DIR} gefunden.", file=sys.stderr)
+        print(
+            f"[WARN] Keine Metadateien in {META_DIR} gefunden.",
+            file=sys.stderr,
+        )
 
     for path in paths:
         ind_id = os.path.splitext(os.path.basename(path))[0]
+
         try:
             with open(path, encoding="utf-8") as f:
-                meta = yaml.safe_load(f) or {}
+                content = f.read()
+
+            # Markdown mit YAML-Frontmatter
+            if path.endswith(".md"):
+                text = content.lstrip()
+                if text.startswith("---"):
+                    try:
+                        _, frontmatter, _ = text.split("---", 2)
+                        meta = yaml.safe_load(frontmatter) or {}
+                    except Exception:
+                        meta = {}
+                else:
+                    meta = {}
+
+            # Reines YAML
+            else:
+                meta = yaml.safe_load(content) or {}
+
             meta_map[ind_id] = meta
+
         except Exception as e:
-            print(f"[WARN] Konnte Meta nicht laden: {path} ({e})", file=sys.stderr)
+            print(
+                f"[WARN] Konnte Meta nicht laden: {path} ({e})",
+                file=sys.stderr,
+            )
 
     return meta_map
 
@@ -78,7 +115,11 @@ def meta_source(meta: Dict[str, Any]) -> str:
 
 
 def meta_title(meta: Dict[str, Any]) -> str:
-    return str(meta.get("SDG_INDICATOR") or meta.get("SDG_INDICATOR_INFO") or "")
+    return str(
+        meta.get("SDG_INDICATOR")
+        or meta.get("SDG_INDICATOR_INFO")
+        or ""
+    )
 
 
 def meta_summary(meta: Dict[str, Any], maxlen: int = SUMMARY_MAXLEN) -> str:
@@ -104,9 +145,15 @@ def build() -> None:
     docs: List[Dict[str, Any]] = []
 
     # 1) CSV -> facts.json
-    csv_paths = sorted(glob.glob(os.path.join(CSV_DIR, "indicator_*.csv")))
+    csv_paths = sorted(
+        glob.glob(os.path.join(CSV_DIR, "indicator_*.csv"))
+    )
+
     if not csv_paths:
-        print(f"[WARN] Keine CSVs in {CSV_DIR} gefunden.", file=sys.stderr)
+        print(
+            f"[WARN] Keine CSVs in {CSV_DIR} gefunden.",
+            file=sys.stderr,
+        )
 
     for path in csv_paths:
         ind_id = (
@@ -132,7 +179,10 @@ def build() -> None:
 
                     series.append({"year": year, "value": value})
         except Exception as e:
-            print(f"[WARN] Konnte CSV nicht lesen: {path} ({e})", file=sys.stderr)
+            print(
+                f"[WARN] Konnte CSV nicht lesen: {path} ({e})",
+                file=sys.stderr,
+            )
 
         meta = meta_map.get(ind_id, {})
         facts[ind_id] = {
