@@ -1,9 +1,4 @@
-
 /* assets/js/chatbot.js */
-/* OpenSDGChatbot – rein clientseitiges RAG-Widget für Open SDG
- * Architektur A: Statisch, ohne Serverdienste.
- * Abhängigkeiten: keine. Lädt facts.json + docs.json.
- */
 (function () {
   const T = {
     de: {
@@ -15,14 +10,11 @@
       thinking: "Suche relevante Informationen…",
       close: "Schließen",
     }
-    // Optional: weitere Sprachen hier ergänzen
   };
 
-  // Einfache Normalisierung & Tokenisierung
   function norm(s) { return (s || "").toLowerCase().replace(/\s+/g, " ").trim(); }
   function tokens(s) { return norm(s).split(/[^a-z0-9äöüß\-\.]+/).filter(Boolean); }
 
-  // sehr einfache Punktwertung: gemeinsame Token, Bonus für genaue ID-Treffer
   function scoreDoc(query, doc) {
     const qTok = tokens(query);
     const text = `${doc.title} ${doc.summary} ${doc.snippets?.join(" ") || ""}`;
@@ -30,20 +22,17 @@
     const setD = new Set(dTok);
     let score = 0;
     qTok.forEach(t => { if (setD.has(t)) score += 1; });
-    // Bonus: exakte Indikator-ID im Text/ID
     const idMatch = query.match(/\b\d+[.\-]\d+(?:[.\-]\d+)?[a-z]?\b/i);
     if (idMatch && (doc.id === idMatch[0] || text.includes(idMatch[0]))) score += 3;
     return score;
   }
 
-  // Trendpfeil
   function trendSymbol(delta) { return delta > 0 ? "↗" : delta < 0 ? "↘" : "→"; }
 
-  // Hauptobjekt
   const OpenSDGChatbot = {
     cfg: null,
-    facts: {},     // { id: {unit, source, url, series:[{year,value},…]} }
-    docs: [],      // [{ id, title, summary, snippets[], url }]
+    facts: {},
+    docs: [],
     lang: "de",
 
     async init(cfg) {
@@ -52,7 +41,6 @@
       const UI = T[this.lang] || T.de;
 
       try {
-        // Daten laden
         const factsResp = await fetch(cfg.dataPaths.facts, { cache: "no-store" });
         const docsResp  = await fetch(cfg.dataPaths.docs,  { cache: "no-store" });
         this.facts = await factsResp.json();
@@ -61,8 +49,79 @@
         console.error("Daten konnten nicht geladen werden:", e);
       }
 
-      // UI bauen
       this.mountUI(UI);
     },
 
     mountUI(UI) {
+      // Chat Container
+      const container = document.createElement("div");
+      container.id = "chatbot-container";
+      container.innerHTML = `
+        <div id="chatbot-header">${UI.title} <button id="chatbot-close">${UI.close}</button></div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input">
+          <input type="text" placeholder="${UI.placeholder}" />
+          <button>${UI.send}</button>
+        </div>
+      `;
+      document.body.appendChild(container);
+
+      // Events
+      const messages = container.querySelector("#chatbot-messages");
+      const input = container.querySelector("input");
+      const sendBtn = container.querySelector("button");
+
+      container.querySelector("#chatbot-close").addEventListener("click", () => {
+        container.style.display = "none";
+      });
+
+      const addMessage = (text, from = "bot") => {
+        const msg = document.createElement("div");
+        msg.className = `chatbot-msg ${from}`;
+        msg.textContent = text;
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
+      };
+
+      const handleQuery = (q) => {
+        addMessage(q, "user");
+        addMessage(UI.thinking, "bot");
+
+        setTimeout(() => {
+          const scored = this.docs.map(d => ({ doc: d, score: scoreDoc(q, d) }));
+          scored.sort((a,b) => b.score - a.score);
+          const best = scored[0];
+
+          messages.lastChild.remove(); // remove "thinking"
+
+          if (!best || best.score === 0) {
+            addMessage(UI.empty, "bot");
+          } else {
+            const fact = this.facts[best.doc.id];
+            let ans = `${best.doc.title}\n${best.doc.summary}`;
+            if (fact && fact.series && fact.series.length) {
+              const latest = fact.series[fact.series.length-1];
+              ans += `\nLetzter Wert (${latest.year}): ${latest.value} ${fact.unit} ${trendSymbol(latest.value - (fact.series[fact.series.length-2]?.value || latest.value))}`;
+            }
+            ans += `\n${UI.sources}: ${fact?.source || best.doc.snippets.join(", ")}`;
+            addMessage(ans, "bot");
+          }
+        }, 200); // simuliere kurze "Verarbeitung"
+      };
+
+      sendBtn.addEventListener("click", () => { 
+        if (input.value.trim()) handleQuery(input.value); 
+        input.value = "";
+      });
+
+      input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" && input.value.trim()) {
+          handleQuery(input.value);
+          input.value = "";
+        }
+      });
+    }
+  };
+
+  window.OpenSDGChatbot = OpenSDGChatbot;
+})();
