@@ -8,7 +8,7 @@ from typing import Dict, Any, List
 # --- Abhängigkeiten prüfen (sauber, mit korrekten Zeilenumbrüchen) ---
 try:
     import yaml
-except ImportError:
+    except ImportError:
     print("Missing dependency: pyyaml", file=sys.stderr)
     sys.exit(1)
 
