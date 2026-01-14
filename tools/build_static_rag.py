@@ -22,8 +22,12 @@ except ImportError:
 # Skriptverzeichnis
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Repo-Root (angenommen Skript liegt in tools/)
-REPO_ROOT = os.path.join(BASE_DIR, "..")
+# Repo-Root
+# - Lokal: ".." vom Skript
+# - GitHub Actions: GITHUB_WORKSPACE
+REPO_ROOT = os.environ.get(
+    "GITHUB_WORKSPACE", os.path.abspath(os.path.join(BASE_DIR, ".."))
+)
 
 # Verzeichnisse
 CSV_DIR = os.getenv("CSV_DIR", os.path.join(REPO_ROOT, "indicator_CSV"))
