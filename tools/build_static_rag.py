@@ -18,10 +18,18 @@ except ImportError:
     print("Missing dependency: pyyaml", file=sys.stderr)
     sys.exit(1)
 
-# --------------------- Konfiguration ------------------------------
-CSV_DIR = os.getenv("CSV_DIR", "indicator_CSV")
-META_DIR = os.getenv("META_DIR", "indicator_meta")
-OUT_DIR = os.getenv("OUT_DIR", "assets/data")
+# --------------------- Pfade --------------------------------------
+# Skriptverzeichnis
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Repo-Root (angenommen Skript liegt in tools/)
+REPO_ROOT = os.path.join(BASE_DIR, "..")
+
+# Verzeichnisse
+CSV_DIR = os.getenv("CSV_DIR", os.path.join(REPO_ROOT, "indicator_CSV"))
+META_DIR = os.getenv("META_DIR", os.path.join(REPO_ROOT, "indicator_meta"))
+OUT_DIR = os.getenv("OUT_DIR", os.path.join(REPO_ROOT, "assets", "data"))
+os.makedirs(OUT_DIR, exist_ok=True)
 
 # Für korrekte Links (z. B. GitHub Pages Projektseiten -> "/<RepoName>")
 SITE_BASEURL = (os.getenv("SITE_BASEURL", "") or "").rstrip("/")
@@ -74,7 +82,6 @@ def load_meta_yaml() -> Dict[str, Dict[str, Any]]:
                         meta = {}
                 else:
                     meta = {}
-
             # Reines YAML
             else:
                 meta = yaml.safe_load(content) or {}
@@ -137,8 +144,6 @@ def parse_float(val) -> float:
 
 # --------------------- Hauptlogik ---------------------------------
 def build() -> None:
-    os.makedirs(OUT_DIR, exist_ok=True)
-
     meta_map = load_meta_yaml()
 
     facts: Dict[str, Any] = {}
