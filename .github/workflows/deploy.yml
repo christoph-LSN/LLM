@@ -27,7 +27,7 @@ jobs:
 
       # Erzeugt assets/data/facts.json und assets/data/docs.json
       - name: Build static RAG JSONs enriched
-        run: python tools/enrich_traning_data.py
+        run: python tools/enrich_training_data.py
 
       #  run: python tools/build_static_rag.py
 
