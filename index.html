@@ -18,15 +18,14 @@
     <p>Hier können Sie den Chatbot nutzen, um Informationen zu Indikatoren abzufragen.</p>
 
     <!-- Chatbot Initialisierung -->
-    <script>
-      window.OpenSDGChatbot.init({
-        dataPaths: {
-          facts: "assets/data/facts.json",
-          docs:  "assets/data/docs.json"
-        },
-        lang: "de"
-      });
-    </script>
+   <script>
+  window.OpenSDGChatbot.init({
+    dataPaths: {
+      training: "training_data.json"
+    },
+    lang: "de"
+  });
+</script>
 
 </body>
 </html>
