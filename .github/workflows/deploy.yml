@@ -26,8 +26,10 @@ jobs:
           pip install pyyaml
 
       # Erzeugt assets/data/facts.json und assets/data/docs.json
-      - name: Build static RAG JSONs
-        run: python tools/build_static_rag.py
+      - name: Build static RAG JSONs enriched
+        run: python tools/enrich_traning_data.py
+
+      #  run: python tools/build_static_rag.py
 
       # Commit & push nur, wenn sich die Dateien geändert haben
       - name: Commit generated JSONs
