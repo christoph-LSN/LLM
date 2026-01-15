@@ -1,10 +1,17 @@
 
-name: Build & Deploy Open SDG + Static RAG (GPT)
+name: "Build & Deploy Open SDG + Static RAG (GPT)"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   workflow_dispatch:
+
+permissions:
+  contents: write   # erforderlich, damit der Workflow in das Repo pushen darf
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build-deploy:
@@ -14,17 +21,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: true  # nutzt GITHUB_TOKEN für Push
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
-          # aktuell eigentlich keine Deps nötig; pyyaml bleibt, falls andere Steps sie brauchen
+          # aktuell nur Standardlib nötig; pyyaml bleibt optional, falls weitere Steps sie brauchen
           pip install pyyaml
 
       - name: Show workspace structure (before)
@@ -36,8 +44,11 @@ jobs:
           echo "------"
           ls -la assets/data || true
 
+      # Erzeugt assets/data/indicators.json (enriched)
       - name: Build enriched indicators JSON
         run: |
+          set -euo pipefail
+          mkdir -p assets/data
           python tools/enrich_training_data.py \
             --input training_data.json \
             --output assets/data/indicators.json \
@@ -49,20 +60,30 @@ jobs:
           ls -la assets/data || true
           echo "File size:"
           du -h assets/data/indicators.json || true
+          echo "Head:"
+          head -n 30 assets/data/indicators.json || true
 
-      # Commit & push nur, wenn sich die Dateien geändert haben
+      # Falls du zusätzlich facts/docs generierst, hier einkommentieren:
+      # - name: Build static RAG JSONs (facts/docs)
+      #   run: python tools/build_static_rag.py
+
       - name: Commit generated JSONs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -e
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # WICHTIG: indicators.json hinzufügen
+
+          # WICHTIG: indicators.json hinzufügen (ggf. weitere Dateien ergänzen)
           git add assets/data/indicators.json
-          # Wenn du facts/docs weiterhin baust, füge sie hier ebenfalls hinzu:
+          # Wenn du facts/docs zusätzlich baust, füge sie hier hinzu:
           # git add assets/data/facts.json assets/data/docs.json
 
           if ! git diff --cached --quiet; then
-            git commit -m "Auto-update generated JSON files"
+            git commit -m "Auto-update indicators.json (enriched) [skip ci]"
             git push
           else
             echo "No changes to commit"
           fi
+``
