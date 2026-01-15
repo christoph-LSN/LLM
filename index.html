@@ -15,17 +15,20 @@
 
     <!-- Optional: Hauptinhalt der Seite -->
     <h1>Willkommen beim Integrationsmonitoring</h1>
-    <p>Hier können Sie den Chatbot nutzen, um Informationen zu Indikatoren abzufragen.</p>
+    <p>Hier können Sie den enriched Chatbot nutzen, um Informationen zu Indikatoren abzufragen.</p>
 
     <!-- Chatbot Initialisierung -->
-   <script>
-  window.OpenSDGChatbot.init({
+   <script src="assets/js/chatbot.js"></script>
+
+<script>
+  OpenSDGChatbot.init({
     dataPaths: {
-      training: "training_data.json"
+      indicators: "assets/data/indicators.json"
     },
     lang: "de"
   });
 </script>
+
 
 </body>
 </html>
