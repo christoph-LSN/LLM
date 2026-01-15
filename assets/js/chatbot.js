@@ -1,192 +1,94 @@
-/* assets/js/chatbot.js
- * OpenSDGChatbot – clientseitiger Wissens-Chatbot
- * Datenbasis: training_data.json
- * Kein Backend, GitHub Pages kompatibel
- */
-
 (function () {
 
-  /* =========================
-     UI Texte
-     ========================= */
-  const T = {
-    de: {
-      title: "Chat Integrationsmonitoring",
-      placeholder: "Frage stellen (z. B. „Was ist Bevölkerung in Niedersachsen?“)",
-      send: "Senden",
-      empty: "Dazu liegen mir keine Daten vor.",
-      thinking: "Suche relevante Informationen …",
-      close: "✕",
-      source: "Quelle"
-    }
-  };
-
-  /* =========================
-     Hilfsfunktionen
-     ========================= */
   function norm(s) {
-    return (s || "")
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
+    return (s || "").toLowerCase().trim();
   }
 
   function tokens(s) {
-    return norm(s)
-      .split(/[^a-z0-9äöüß\-]+/)
-      .filter(Boolean);
+    return norm(s).split(/[^a-z0-9äöüß\-\.]+/).filter(Boolean);
   }
 
-  function scoreEntry(query, entry) {
-    const qTok = tokens(query);
-
-    const text = `
-      ${entry.id || ""}
-      ${entry.name || ""}
-      ${entry.definition || ""}
-      ${entry.methodology || ""}
-      ${entry.additional_info || ""}
-    `;
-
-    const dTok = tokens(text);
-    const setD = new Set(dTok);
-
+  function scoreIndicator(query, ind) {
     let score = 0;
-    qTok.forEach(t => {
-      if (setD.has(t)) score++;
-    });
+    const q = norm(query);
 
-    // Bonus bei exakter ID
-    if (entry.id && query.includes(entry.id)) {
-      score += 5;
+    // 1️⃣ Exakte ID (höchste Priorität)
+    if (ind.id && q.includes(ind.id.replace("-", "."))) score += 50;
+
+    // 2️⃣ Keywords
+    if (ind.keywords) {
+      ind.keywords.forEach(k => {
+        if (q.includes(k)) score += 8;
+      });
     }
+
+    // 3️⃣ Name
+    if (ind.name && q.includes(ind.name.toLowerCase())) score += 10;
 
     return score;
   }
 
-  function buildAnswer(entry) {
-    let out = `📊 ${entry.name || entry.id}\n\n`;
-
-    if (entry.definition) {
-      out += `🧾 Definition:\n${entry.definition}\n\n`;
-    }
-
-    if (entry.methodology) {
-      out += `📐 Methodik:\n${entry.methodology}\n\n`;
-    }
-
-    if (Array.isArray(entry.csv_data) && entry.csv_data.length > 0) {
-      const last = entry.csv_data[entry.csv_data.length - 1];
-      if (last?.Value && last?.Year) {
-        out += `📈 Beispielwert:\n`;
-        out += `${last.Year}`;
-        if (last.Gebietseinheit) {
-          out += ` – ${last.Gebietseinheit}`;
-        }
-        out += `: ${last.Value}\n\n`;
-      }
-    }
-
-    if (entry.url) {
-      out += `🔗 ${T.de.source}: ${entry.url}`;
-    }
-
-    return out.trim();
-  }
-
-  /* =========================
-     Hauptobjekt
-     ========================= */
-  const OpenSDGChatbot = {
-    cfg: null,
+  const Chatbot = {
     data: [],
     lang: "de",
 
     async init(cfg) {
-      this.cfg = cfg || {};
-      this.lang = cfg.lang || "de";
-
-      try {
-        const resp = await fetch(cfg.dataPaths.training, { cache: "no-store" });
-        this.data = await resp.json();
-      } catch (e) {
-        console.error("training_data.json konnte nicht geladen werden", e);
-        this.data = [];
-      }
-
-      this.mountUI(T[this.lang] || T.de);
+      const resp = await fetch(cfg.dataPaths.indicators, { cache: "no-store" });
+      this.data = await resp.json();
+      this.mount();
     },
 
-    mountUI(UI) {
-      const container = document.createElement("div");
-      container.id = "chatbot-container";
-      container.innerHTML = `
-        <div id="chatbot-header">
-          ${UI.title}
-          <button id="chatbot-close">${UI.close}</button>
-        </div>
-        <div id="chatbot-messages"></div>
-        <div id="chatbot-input">
-          <input type="text" placeholder="${UI.placeholder}" />
-          <button>${UI.send}</button>
+    mount() {
+      const box = document.createElement("div");
+      box.id = "chatbot";
+
+      box.innerHTML = `
+        <div class="cb-header">📊 Integrationsmonitoring-Chat</div>
+        <div class="cb-messages" id="cb-msg"></div>
+        <div class="cb-input">
+          <input id="cb-q" placeholder="Frage eingeben…" />
+          <button id="cb-send">Senden</button>
         </div>
       `;
-      document.body.appendChild(container);
 
-      const messages = container.querySelector("#chatbot-messages");
-      const input = container.querySelector("input");
-      const sendBtn = container.querySelector("#chatbot-input button");
+      document.body.appendChild(box);
 
-      container.querySelector("#chatbot-close")
-        .addEventListener("click", () => {
-          container.style.display = "none";
-        });
-
-      const addMessage = (text, who) => {
-        const div = document.createElement("div");
-        div.className = `chatbot-msg ${who}`;
-        div.textContent = text;
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
+      document.getElementById("cb-send").onclick = () => this.ask();
+      document.getElementById("cb-q").onkeydown = e => {
+        if (e.key === "Enter") this.ask();
       };
+    },
 
-      const handleQuery = (q) => {
-        addMessage(q, "user");
-        addMessage(UI.thinking, "bot");
+    ask() {
+      const q = document.getElementById("cb-q").value;
+      if (!q) return;
 
-        setTimeout(() => {
-          messages.lastChild.remove();
+      const msg = document.getElementById("cb-msg");
+      msg.innerHTML += `<div class="user">${q}</div>`;
 
-          const scored = this.data
-            .map(e => ({ entry: e, score: scoreEntry(q, e) }))
-            .sort((a, b) => b.score - a.score);
+      const scored = this.data
+        .map(i => ({ i, s: scoreIndicator(q, i) }))
+        .filter(x => x.s > 0)
+        .sort((a,b) => b.s - a.s)
+        .slice(0, 1);   // 🔥 NUR BESTER TREFFER
 
-          if (!scored.length || scored[0].score === 0) {
-            addMessage(UI.empty, "bot");
-            return;
-          }
+      if (!scored.length) {
+        msg.innerHTML += `<div class="bot">Dazu liegen mir keine passenden Daten vor.</div>`;
+        return;
+      }
 
-          const answer = buildAnswer(scored[0].entry);
-          addMessage(answer, "bot");
+      const ind = scored[0].i;
 
-        }, 150);
-      };
-
-      sendBtn.addEventListener("click", () => {
-        if (input.value.trim()) {
-          handleQuery(input.value.trim());
-          input.value = "";
-        }
-      });
-
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && input.value.trim()) {
-          handleQuery(input.value.trim());
-          input.value = "";
-        }
-      });
+      msg.innerHTML += `
+        <div class="bot">
+          <strong>${ind.id} – ${ind.name}</strong><br>
+          ${ind.short_definition}<br><br>
+          🔗 <a href="${ind.url}" target="_blank">Indikatorseite öffnen</a>
+        </div>
+      `;
     }
   };
 
-  window.OpenSDGChatbot = OpenSDGChatbot;
+  window.OpenSDGChatbot = Chatbot;
+
 })();
