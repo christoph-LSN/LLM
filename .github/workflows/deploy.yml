@@ -1,0 +1,68 @@
+
+name: Build & Deploy Open SDG + Static RAG (GPT)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          # aktuell eigentlich keine Deps nötig; pyyaml bleibt, falls andere Steps sie brauchen
+          pip install pyyaml
+
+      - name: Show workspace structure (before)
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          ls -la
+          echo "------"
+          ls -la assets || true
+          echo "------"
+          ls -la assets/data || true
+
+      - name: Build enriched indicators JSON
+        run: |
+          python tools/enrich_training_data.py \
+            --input training_data.json \
+            --output assets/data/indicators.json \
+            --keywords 12 \
+            --short-len 280
+
+      - name: Show outputs (after)
+        run: |
+          ls -la assets/data || true
+          echo "File size:"
+          du -h assets/data/indicators.json || true
+
+      # Commit & push nur, wenn sich die Dateien geändert haben
+      - name: Commit generated JSONs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # WICHTIG: indicators.json hinzufügen
+          git add assets/data/indicators.json
+          # Wenn du facts/docs weiterhin baust, füge sie hier ebenfalls hinzu:
+          # git add assets/data/facts.json assets/data/docs.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update generated JSON files"
+            git push
+          else
+            echo "No changes to commit"
+          fi
