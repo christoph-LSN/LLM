@@ -1,5 +1,5 @@
 
-name: "Build & Deploy Open SDG + Static RAG (GPT)"
+name: Build & Deploy Open SDG + Static RAG (GPT)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # erforderlich, damit der Workflow in das Repo pushen darf
+  contents: write
 
 concurrency:
   group: build-deploy-${{ github.ref }}
@@ -16,12 +16,15 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # nutzt GITHUB_TOKEN für Push
+          persist-credentials: true  # nutzt das GITHUB_TOKEN für push
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -32,23 +35,30 @@ jobs:
       - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
-          # aktuell nur Standardlib nötig; pyyaml bleibt optional, falls weitere Steps sie brauchen
           pip install pyyaml
 
       - name: Show workspace structure (before)
         run: |
           echo "Workspace: $GITHUB_WORKSPACE"
-          ls -la
-          echo "------"
+          ls -la || true
+          echo "------ assets ------"
           ls -la assets || true
-          echo "------"
+          echo "------ assets/data ------"
           ls -la assets/data || true
 
-      # Erzeugt assets/data/indicators.json (enriched)
+      - name: Ensure training_data.json exists
+        run: |
+          if [[ ! -f "training_data.json" ]]; then
+            echo "::error file=training_data.json::training_data.json nicht im Repo-Root gefunden."
+            echo "Passe ggf. --input an (z. B. data/training_data.json)."
+            exit 1
+          fi
+
       - name: Build enriched indicators JSON
         run: |
           set -euo pipefail
           mkdir -p assets/data
+          echo "[INFO] Running enrich script..."
           python tools/enrich_training_data.py \
             --input training_data.json \
             --output assets/data/indicators.json \
@@ -57,28 +67,25 @@ jobs:
 
       - name: Show outputs (after)
         run: |
+          echo "[INFO] assets/data listing:"
           ls -la assets/data || true
-          echo "File size:"
+          echo "[INFO] Size:"
           du -h assets/data/indicators.json || true
-          echo "Head:"
+          echo "[INFO] Preview:"
           head -n 30 assets/data/indicators.json || true
 
-      # Falls du zusätzlich facts/docs generierst, hier einkommentieren:
-      # - name: Build static RAG JSONs (facts/docs)
-      #   run: python tools/build_static_rag.py
-
       - name: Commit generated JSONs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
+          if [[ ! -f "assets/data/indicators.json" ]]; then
+            echo "indicators.json wurde nicht erzeugt – Commit wird übersprungen."
+            exit 0
+          fi
+
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # WICHTIG: indicators.json hinzufügen (ggf. weitere Dateien ergänzen)
-          git add assets/data/indicators.json
-          # Wenn du facts/docs zusätzlich baust, füge sie hier hinzu:
-          # git add assets/data/facts.json assets/data/docs.json
+          git add assets/data/indicators.json || true
 
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update indicators.json (enriched) [skip ci]"
@@ -86,4 +93,3 @@ jobs:
           else
             echo "No changes to commit"
           fi
-``
