@@ -1,0 +1,14 @@
+# Production Jekyll Configuration
+# Use with: jekyll build --config _config.yml,_config_prod.yml
+
+# FEATURE FLAG: Enable chatbot on production
+chatbot_enabled: true
+
+# Chatbot Configuration
+chatbot_config:
+  training_data_url: "https://raw.githubusercontent.com/christoph-LSN/LLM/main/training_data.json"
+  popup_position: "bottom-right"
+  auto_open_delay: 5000
+  theme: "light"
+  show_minimized_badge: true
+  persistence_key: "chatbot_state_prod"
